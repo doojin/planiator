@@ -1,0 +1,29 @@
+@import "globals";
+
+$row-width: 1000px;
+$content-width-medium: 65%;
+$content-width-small: 100%;
+$headings: (
+    (h1, 24px),
+    (h2, 22px),
+    (h3, 20px),
+    (h4, 18px)
+);
+
+@each $headingName, $headingSize in $headings {
+    #{$headingName} {
+        font-size: $headingSize;
+    }
+}
+
+.content {
+    @media #{$small-only} {
+        width: $content-width-small;
+    }
+    
+    @media #{$medium-up} {
+        width: $content-width-medium;
+    }
+    
+    margin: 0 auto;
+}

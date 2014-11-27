@@ -1,0 +1,44 @@
+body {
+  background: url(/assets/img/wallpaper.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
+label {
+  margin-bottom: 5px;
+  text-align: left;
+  color: #FFFFFF; }
+
+input[type=text], input[type=password] {
+  background-color: rgba(255, 255, 255, 0.75); }
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: rgba(255, 255, 255, 0.85); }
+
+.main {
+  padding: 15% 0; }
+
+.row.remember-me {
+  text-align: left; }
+
+.sign-in form, .sign-up form {
+  padding: 25px 35px 15px 35px;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px; }
+  .sign-in form .pn-button, .sign-up form .pn-button {
+    margin-top: 10px; }
+
+.sign-in .pn-button.green {
+  background-color: rgba(70, 179, 79, 0.7); }
+  .sign-in .pn-button.green:hover {
+    background-color: #46B34F; }
+
+@media only screen and (max-width: 40em) {
+  .sign-up {
+    margin-top: 25px; } }
+
+/*# sourceMappingURL=index.css.map */

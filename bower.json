@@ -1,0 +1,20 @@
+{
+  "name": "planiator",
+  "version": "1.0.0",
+  "homepage": "https://github.com/doojin/planiator",
+  "authors": [
+    "Dmitry Papka <dmitry.papka@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "latest"
+  }
+}

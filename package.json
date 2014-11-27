@@ -1,0 +1,25 @@
+{
+  "name": "planiator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/doojin/planiator.git"
+  },
+  "author": "Dmitry Papka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/doojin/planiator/issues"
+  },
+  "homepage": "https://github.com/doojin/planiator",
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "^1.3.12",
+    "grunt": "^0.4.5",
+    "grunt-contrib-sass": "^0.8.1"
+  }
+}
