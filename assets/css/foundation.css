@@ -15886,6 +15886,7 @@ th.hide-for-touch {
   border-color: #007095;
   color: #FFFFFF;
   transition: background-color 300ms ease-out;
+  background-color: rgba(0, 140, 186, 0.7);
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px; }
@@ -15893,6 +15894,8 @@ th.hide-for-touch {
     background-color: #007095; }
   .pn-button:hover, .pn-button:focus {
     color: #FFFFFF; }
+  .pn-button:hover {
+    background-color: #008CBA; }
   .pn-button.green {
     border-style: solid;
     border-width: 0px;
@@ -15915,6 +15918,7 @@ th.hide-for-touch {
     border-color: #388f3f;
     color: #FFFFFF;
     transition: background-color 300ms ease-out;
+    background-color: rgba(70, 179, 79, 0.7);
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px; }
@@ -15922,5 +15926,39 @@ th.hide-for-touch {
       background-color: #388f3f; }
     .pn-button.green:hover, .pn-button.green:focus {
       color: #FFFFFF; }
+    .pn-button.green:hover {
+      background-color: #46B34F; }
+  .pn-button.red {
+    border-style: solid;
+    border-width: 0px;
+    cursor: pointer;
+    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-weight: normal;
+    line-height: normal;
+    margin: 0 0 1.25rem;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    display: inline-block;
+    padding-top: 0.5rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5625rem;
+    padding-left: 1rem;
+    background-color: #B34646;
+    border-color: #8f3838;
+    color: #FFFFFF;
+    transition: background-color 300ms ease-out;
+    background-color: rgba(179, 70, 70, 0.7);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px; }
+    .pn-button.red:hover, .pn-button.red:focus {
+      background-color: #8f3838; }
+    .pn-button.red:hover, .pn-button.red:focus {
+      color: #FFFFFF; }
+    .pn-button.red:hover {
+      background-color: #B34646; }
 
 /*# sourceMappingURL=foundation.css.map */

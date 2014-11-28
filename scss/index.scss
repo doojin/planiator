@@ -39,14 +39,6 @@ input[type=text]:focus, input[type=password]:focus {
 
 .sign-in {
     @extend %form-container;
-    .pn-button {
-        &.green {
-            background-color: transparentize($buttonGreen, 0.3);
-            &:hover {
-                background-color: $buttonGreen;
-            }
-        }
-    }
 }
 
 .sign-up {
