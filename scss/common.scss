@@ -10,6 +10,11 @@ $headings: (
     (h4, 18px)
 );
 
+body {
+    background: url(/assets/img/wallpaper.jpg) no-repeat center center fixed; 
+    @include background-size(cover);
+}
+
 @each $headingName, $headingSize in $headings {
     #{$headingName} {
         font-size: $headingSize;
