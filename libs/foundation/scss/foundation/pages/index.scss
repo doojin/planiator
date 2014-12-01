@@ -1,0 +1,58 @@
+.homepage-content {
+    
+    label {
+        margin-bottom: 5px;
+        text-align: left;
+        color: #FFFFFF;
+    }
+    
+    input[type=text], input[type=password] {
+        background-color: rgba(255, 255, 255, 0.75);
+    }
+    
+    input[type=text]:focus, input[type=password]:focus {
+        background-color: rgba(255, 255, 255, 0.85);
+    }
+    
+    .main {
+        padding: 15% 0;
+    }
+    
+    .row {
+        // Remember me checkbox should be floated left
+        &.remember-me {
+            text-align: left;
+        }
+    }
+    
+    %form-container {
+        form {
+            padding: 25px 35px 15px 35px;
+            background-color: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            .pn-button {
+                margin-top: 10px;
+            }
+            @include round(5px);
+        }
+    }
+    
+    .sign-in {
+        @extend %form-container;
+        .pn-button {
+            &.green {
+                background-color: transparentize($buttonGreen, 0.3);
+                &:hover {
+                    background-color: $buttonGreen;
+                }
+            }
+        }
+    }
+    
+    .sign-up {
+        @extend %form-container;
+        @media #{$small-only} {
+            margin-top: 25px;
+        }
+    }
+}
