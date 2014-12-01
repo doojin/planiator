@@ -1,7 +1,8 @@
 module.exports = function(grunt) {
     
     var tasks = [
-        'grunt-contrib-sass'
+        'grunt-contrib-sass',
+        'grunt-contrib-copy'
     ];
     
     tasks.forEach(function(task) {
@@ -21,9 +22,16 @@ module.exports = function(grunt) {
                     'assets/css/app.css': 'libs/foundation/scss/app.scss'
                 }
             }
+        },
+        copy: {
+            foundation: {
+                files: [
+                    {expand: true, src: ['scss/**'], dest: 'libs/foundation/scss'}    
+                ]
+            }
         }
     });
     
-    grunt.registerTask('scss', ['sass']);
+    grunt.registerTask('scss', ['copy', 'sass']);
     
 };
