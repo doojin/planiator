@@ -10,32 +10,20 @@ module.exports = function(grunt) {
     
     grunt.initConfig({
         sass: {
-            foundation: {
+            app: {
                 options: {
                     loadPath: [
                         'libs/foundation/scss',
+                        'libs/foundation/scss/foundation'
                     ]
                 },
                 files: {
-                    'assets/css/foundation.css': 'libs/foundation/scss/foundation.scss'
-                }
-            },
-            customSCSSFiles: {
-                options: {
-                    loadPath: [
-                        'libs/foundation/scss',
-                    ]
-                },
-                files: {
-                    'assets/css/common.css': 'scss/common.scss',
-                    'assets/css/index.css': 'scss/index.scss',
-                    'assets/css/calendar.css': 'scss/calendar.scss'
+                    'assets/css/app.css': 'libs/foundation/scss/app.scss'
                 }
             }
         }
     });
     
     grunt.registerTask('scss', ['sass']);
-    grunt.registerTask('scss_custom', ['sass:customSCSSFiles']);
     
 };

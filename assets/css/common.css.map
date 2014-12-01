@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAYA,IAAK;EACD,UAAU,EAAE,4DAA4D;ECiG1E,uBAAuB,EDhGI,KAAK;ECiGhC,oBAAoB,EDjGO,KAAK;ECkGhC,kBAAkB,EDlGS,KAAK;ECmGhC,eAAe,EDnGY,KAAK;;AAI9B,EAAgB;EACZ,SAAS,EAbR,IAAI;;AAYT,EAAgB;EACZ,SAAS,EAZR,IAAI;;AAWT,EAAgB;EACZ,SAAS,EAXR,IAAI;;AAUT,EAAgB;EACZ,SAAS,EAVR,IAAI;;AAcb,QAAS;EASL,MAAM,EAAE,MAAM;EARd,wCAAsB;IAD1B,QAAS;MAED,KAAK,EArBS,IAAI;EAwBtB,4CAAqB;IALzB,QAAS;MAMD,KAAK,EA1BU,GAAG",
-"sources": ["../../scss/common.scss","../../libs/foundation/scss/foundation/_functions.scss"],
-"names": [],
-"file": "common.css"
-}
