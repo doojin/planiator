@@ -1,3 +1,4 @@
+@charset "UTF-8";
 meta.foundation-version {
   font-family: "/5.4.7/"; }
 
@@ -17131,8 +17132,9 @@ h4 {
       .calendar-content .calendar .week:nth-child(odd) {
         background-color: rgba(255, 255, 255, 0.6); }
       .calendar-content .calendar .week li {
-        overflow: hidden;
+        position: relative;
         height: 108px;
+        overflow: hidden;
         border-right: solid 1px rgba(0, 0, 0, 0.5); }
         @media only screen and (max-width: 40em) {
           .calendar-content .calendar .week li {
@@ -17241,5 +17243,20 @@ h4 {
           font-size: 0.6875rem;
           background-color: rgba(36, 9, 41, 0.45);
           color: #FFFFFF; }
+        .calendar-content .calendar .week li .hover {
+          display: none;
+          position: absolute;
+          width: 100%;
+          height: 108px;
+          top: 0;
+          left: 0;
+          text-align: center;
+          color: #AAAAAA;
+          font-weight: bold;
+          line-height: 108px;
+          background-color: rgba(0, 0, 0, 0.85); }
+        .calendar-content .calendar .week li:hover .hover {
+          display: block;
+          cursor: pointer; }
 
 /*# sourceMappingURL=app.css.map */

@@ -1,11 +1,11 @@
 .calendar-content {
-    
+
     $border-color: rgba(0, 0, 0, 0.5);
     $day-names-bg: rgba(0, 0, 0, 0.6);
     $extra-light-bg: rgba(255, 255, 255, 0.6);
     $light-bg: rgba(255, 255, 255, 0.7);
     $day-label-bg: rgba(0, 0, 0, 0.7);
-    
+
     $label-opacity: 0.45;
     $label-red: rgba(41, 9, 9, $label-opacity);
     $label-blue: rgba(9, 39, 41, $label-opacity);
@@ -13,55 +13,56 @@
     $label-brown: rgba(41, 41, 9, $label-opacity);
     $label-black: rgba(0, 0, 0, $label-opacity);
     $label-purple: rgba(36, 9, 41, $label-opacity);
-    
+
     margin: 2% 5%;
-    
+
     .calendar {
         @include block;
         padding: 20px 30px;
-    
+
         ul { border: solid 1px $border-color; }
         li { color: #FFFFFF; }
-        
+
         .day-names {
             background-color: $day-names-bg;
-            
+
             li {
                 height: 36px;
                 line-height: 36px;
                 text-align: center;
             }
         }
-        
+
         .week {
             border-top-width: 0;
-            
+
             &:nth-child(even) { background-color: $light-bg; }
             &:nth-child(odd) { background-color: $extra-light-bg; }
-            
+
             li {
-                overflow: hidden;
+                position: relative;
                 height: 108px;
+                overflow: hidden;
                 border-right: solid 1px $border-color;
-                
+
                 @media #{$small-only} {
                     & {
                         text-align: center;
                         border-top: solid 1px $border-color;
                     }
                 }
-                
+
                 @media #{$medium-up} {
                     &:last-child {
                         border-right-width: 0;
                     }
                 }
-                
+
                 .day {
                     @include label($bg:$day-label-bg, $radius:true, $text-size: rem-calc(12));
                     font-weight: bold;
                 }
-                
+
                 .label {
                     &.red { @include label($bg:$label-red); }
                     &.blue { @include label($bg:$label-blue); }
@@ -69,6 +70,27 @@
                     &.brown { @include label($bg:$label-brown); }
                     &.black { @include label($bg:$label-black); }
                     &.purple { @include label($bg:$label-purple); }
+                }
+
+                .hover {
+                    display: none;
+                    position: absolute;
+                    width: 100%;
+                    height: 108px;
+                    top: 0;
+                    left: 0;
+                    text-align:center;
+                    color: #AAAAAA;
+                    font-weight: bold;
+                    line-height: 108px;
+                    background-color: rgba(0, 0, 0, 0.85);
+                }
+
+                &:hover {
+                    .hover {
+                        display: block;
+                        cursor: pointer;
+                    }
                 }
             }
         }
