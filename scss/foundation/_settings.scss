@@ -1230,6 +1230,7 @@ $medium-up: "#{$screen} and (min-width:#{lower-bound($medium-range)})";
 // $include-html-form-classes: $include-html-classes;
 
 // Controlling border styles and background colors for the switch container
+$switch-active-color: $buttonGreen;
 // $switch-border-color: scale-color($white, $lightness: -20%);
 // $switch-border-style: solid;
 // $switch-border-width: 1px;

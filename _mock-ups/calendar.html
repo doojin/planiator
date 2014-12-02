@@ -4,6 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Planiator</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/app.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/foundation-icons/foundation-icons.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/timepicker.css"/>
 </head>
 <body>
 
@@ -50,208 +52,294 @@
     </div>
 
     <div class="calendar-content">
-            <div class="calendar">
-                <ul class="day-names hide-for-small-only small-block-grid-1 medium-block-grid-7">
-                    <li>Monday</li>
-                    <li>Tuesday</li>
-                    <li>Wednesday</li>
-                    <li>Thursday</li>
-                    <li>Friday</li>
-                    <li>Saturday</li>
-                    <li>Sunday</li>
-                </ul>
-                <ul class="week small-block-grid-1 medium-block-grid-7">
-                    <li class="hide-for-small-only"></li>
-                    <li class="hide-for-small-only"></li>
-                    <li class="hide-for-small-only"></li>
-                    <li class="hide-for-small-only"></li>
-                    <li data-id="01012014">
-                        <div class="day">1</div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="02012014">
-                        <div class="day">2</div>
-                        <div>
-                            <div class="green label">Meetings</div>
-                        </div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="03012014">
-                        <div class="day">3</div>
-                        <div class="hover">Show</div>
-                    </li>
-                </ul>
-                <ul class="week small-block-grid-1 medium-block-grid-7">
-                    <li data-id="04012014">
-                        <div class="day">4</div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="05012014">
-                        <div class="day">5</div>
-                        <div>
-                            <div class="green label">Meetings</div>
-                            <div>
-                                <div class="red label">Tasks</div>
-                            </div>
-                        </div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="06012014">
-                        <div class="day">6</div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="07012014">
-                        <div class="day">7</div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="08012014">
-                        <div class="day">8</div>
-                        <div>
-                            <div class="green label">Meetings</div>
-                        </div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="09012014">
-                        <div class="day">9</div>
-                        <div><div class="black label">Family</div></div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="10012014">
-                        <div class="day">10</div>
-                        <div class="hover">Show</div>
-                    </li>
-                </ul>
-                <ul class="week small-block-grid-1 medium-block-grid-7">
-                    <li data-id="11012014">
-                        <div class="day">11</div>
-                        <div>
-                            <div class="black label">Family</div>
-                        </div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="12012014">
-                        <div class="day">12</div>
+        <div class="calendar">
+            <ul class="day-names hide-for-small-only small-block-grid-1 medium-block-grid-7">
+                <li>Monday</li>
+                <li>Tuesday</li>
+                <li>Wednesday</li>
+                <li>Thursday</li>
+                <li>Friday</li>
+                <li>Saturday</li>
+                <li>Sunday</li>
+            </ul>
+            <ul class="week small-block-grid-1 medium-block-grid-7">
+                <li class="hide-for-small-only"></li>
+                <li class="hide-for-small-only"></li>
+                <li class="hide-for-small-only"></li>
+                <li class="hide-for-small-only"></li>
+                <li data-id="01012014">
+                    <div class="day">1</div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="02012014">
+                    <div class="day">2</div>
+                    <div>
+                        <div class="green label">Meetings</div>
+                    </div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="03012014">
+                    <div class="day">3</div>
+                    <div class="hover">Show</div>
+                </li>
+            </ul>
+            <ul class="week small-block-grid-1 medium-block-grid-7">
+                <li data-id="04012014">
+                    <div class="day">4</div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="05012014">
+                    <div class="day">5</div>
+                    <div>
+                        <div class="green label">Meetings</div>
                         <div>
                             <div class="red label">Tasks</div>
                         </div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="13012014">
-                        <div class="day">13</div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="14012014">
-                        <div class="day">14</div>
-                        <div>
-                            <div class="green label">Meetings</div>
-                            <div class="black label">Family</div>
-                            <div class="red label">Tasks</div>
-                        </div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="15012014">
-                        <div class="day">15</div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="16012014">
-                        <div class="day">16</div>
-                        <div>
-                            <div class="black label">Family</div>
-                        </div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="17012014">
-                        <div class="day">17</div>
-                        <div class="hover">Show</div>
-                    </li>
-                </ul>
-                <ul class="week small-block-grid-1 medium-block-grid-7">
-                    <li data-id="18012014">
-                        <div class="day">18</div>
-                        <div>
-                            <div class="purple label">My Calendar</div>
-                            <div class="red label">Tasks</div>
-                            <div class="green label">Meetings</div>
-                            <div class="black label">Family</div>
-                            <div class="brown label">University</div>
-                            <div class="blue label">Work</div>
-                        </div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="19012014">
-                        <div class="day">19</div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="20012014">
-                        <div class="day">20</div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="21012014">
-                        <div class="day">21</div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="22012014">
-                        <div class="day">22</div>
-                        <div><div class="brown label">University</div></div>
-                        <div>
-                            <div class="red label">Tasks</div>
-                        </div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="23012014">
-                        <div class="day">23</div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="24012014">
-                        <div class="day">24</div>
-                        <div>
-                            <div class="black label">Family</div>
-                        </div>
-                        <div class="hover">Show</div>
-                    </li>
-                </ul>
-                <ul class="week small-block-grid-1 medium-block-grid-7">
-                    <li data-id="25012014">
-                        <div class="day">25</div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="26012014">
-                        <div class="day">26</div>
-                        <div>
-                            <div class="brown label">University</div>
-                        </div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="27012014">
-                        <div class="day">27</div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="28012014">
-                        <div class="day">28</div>
-                        <div>
-                            <div class="brown label">University</div>
-                        </div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="29012014">
-                        <div class="day">29</div>
-                        <div>
-                            <div class="black label">Family</div>
-                        </div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li data-id="30012014">
-                        <div class="day">30</div>
-                        <div class="hover">Show</div>
-                    </li>
-                    <li class="hide-for-small-only"></li>
-                </ul>
+                    </div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="06012014">
+                    <div class="day">6</div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="07012014">
+                    <div class="day">7</div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="08012014">
+                    <div class="day">8</div>
+                    <div>
+                        <div class="green label">Meetings</div>
+                    </div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="09012014">
+                    <div class="day">9</div>
+                    <div><div class="black label">Family</div></div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="10012014">
+                    <div class="day">10</div>
+                    <div class="hover">Show</div>
+                </li>
+            </ul>
+            <ul class="week small-block-grid-1 medium-block-grid-7">
+                <li data-id="11012014">
+                    <div class="day">11</div>
+                    <div>
+                        <div class="black label">Family</div>
+                    </div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="12012014">
+                    <div class="day">12</div>
+                    <div>
+                        <div class="red label">Tasks</div>
+                    </div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="13012014">
+                    <div class="day">13</div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="14012014">
+                    <div class="day">14</div>
+                    <div>
+                        <div class="green label">Meetings</div>
+                        <div class="black label">Family</div>
+                        <div class="red label">Tasks</div>
+                    </div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="15012014">
+                    <div class="day">15</div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="16012014">
+                    <div class="day">16</div>
+                    <div>
+                        <div class="black label">Family</div>
+                    </div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="17012014">
+                    <div class="day">17</div>
+                    <div class="hover">Show</div>
+                </li>
+            </ul>
+            <ul class="week small-block-grid-1 medium-block-grid-7">
+                <li data-id="18012014">
+                    <div class="day">18</div>
+                    <div>
+                        <div class="purple label">My Calendar</div>
+                        <div class="red label">Tasks</div>
+                        <div class="green label">Meetings</div>
+                        <div class="black label">Family</div>
+                        <div class="brown label">University</div>
+                        <div class="blue label">Work</div>
+                    </div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="19012014">
+                    <div class="day">19</div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="20012014">
+                    <div class="day">20</div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="21012014">
+                    <div class="day">21</div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="22012014">
+                    <div class="day">22</div>
+                    <div><div class="brown label">University</div></div>
+                    <div>
+                        <div class="red label">Tasks</div>
+                    </div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="23012014">
+                    <div class="day">23</div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="24012014">
+                    <div class="day">24</div>
+                    <div>
+                        <div class="black label">Family</div>
+                    </div>
+                    <div class="hover">Show</div>
+                </li>
+            </ul>
+            <ul class="week small-block-grid-1 medium-block-grid-7">
+                <li data-id="25012014">
+                    <div class="day">25</div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="26012014">
+                    <div class="day">26</div>
+                    <div>
+                        <div class="brown label">University</div>
+                    </div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="27012014">
+                    <div class="day">27</div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="28012014">
+                    <div class="day">28</div>
+                    <div>
+                        <div class="brown label">University</div>
+                    </div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="29012014">
+                    <div class="day">29</div>
+                    <div>
+                        <div class="black label">Family</div>
+                    </div>
+                    <div class="hover">Show</div>
+                </li>
+                <li data-id="30012014">
+                    <div class="day">30</div>
+                    <div class="hover">Show</div>
+                </li>
+                <li class="hide-for-small-only"></li>
+            </ul>
+        </div>
+
+        <div id="day-popup" class="reveal-modal small" data-reveal>
+            <div class="day-of-week"></div>
+            <div class="date"></div>
+            <div class="task">
+                <input type="checkbox"/>
+                <i class="fi-clock"></i>
+                <div class="time">08:00 - 09:00</div>
+                <div class="category red label">Family</div>
+                <div class="task-title">Dinner at my grandma's house</div>
             </div>
+            <hr>
+            <div class="task">
+                <input type="checkbox"/>
+                <i class="fi-clock"></i>
+                <div class="time">15:00</div>
+                <div class="category green label">School</div>
+                <div class="task-title">Math exam</div>
+            </div>
+            <hr>
+            <div class="task">
+                <input type="checkbox"/>
+                <div class="category purple label">Work</div>
+                <div class="task-title">Finish FIT template</div>
+            </div>
+            <hr>
+            <div class="task">
+                <input type="checkbox"/>
+                <i class="fi-clock"></i>
+                <div class="time">08:00 - 09:00</div>
+                <div class="category black label">University</div>
+                <div class="task-title">Create laboratory work</div>
+            </div>
+            <div class="add-new-record-button row">
+                <div class="small-16 text-center columns">
+                    <div class="green pn-button">Add New</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="add-new-popup" class="reveal-modal small" data-reveal>
+            <form>
+                <div class="row collapse">
+                    <div class="small-3 columns">
+                        <span class="prefix">From:</span>
+                    </div>
+                    <div class="small-4 columns">
+                        <input type="text" id="from">
+                    </div>
+                    <div class="small-3 small-offset-2 columns">
+                        <span class="prefix">To:</span>
+                    </div>
+                    <div class="small-4 columns">
+                        <input type="text" id="to">
+                    </div>
+                </div>
+                <div class="row collapse">
+                    <div class="small-5 columns">
+                        <span class="prefix">Activity Type:</span>
+                    </div>
+                    <div class="small-11 columns">
+                        <select>
+                            <option value="0">Family</option>
+                            <option value="1">Work</option>
+                            <option value="2">University</option>
+                            <option value="3">Meeting</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row collapse">
+                    <div class="small-5 columns">
+                        <span class="prefix">Activity Title:</span>
+                    </div>
+                    <div class="small-11 columns">
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-16 text-center columns">
+                        <div class="blue pn-button">Save</div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 
     <script src="/assets/js/jquery.js"></script>
     <script src="/assets/js/foundation.min.js"></script>
     <script src="/assets/js/foundation.topbar.js"></script>
+    <script src="/assets/js/timepicker.js"></script>
+    <script src="/assets/js/calendar.js"></script>
     <script>
         $(document).foundation();
     </script>

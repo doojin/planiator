@@ -9730,7 +9730,7 @@ select {
     -moz-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0); }
   .switch input:checked + label {
-    background: #008CBA; }
+    background: #46B34F; }
   .switch input:checked + label:after {
     left: 2.25rem; }
   .switch label {
@@ -9747,7 +9747,7 @@ select {
   .switch label:after {
     background: #FFFFFF; }
   .switch input:checked + label {
-    background: #008CBA; }
+    background: #46B34F; }
   .switch.large label {
     width: 5rem;
     height: 2.5rem; }
@@ -17107,6 +17107,91 @@ h4 {
   .homepage-content .sign-up {
     margin-top: 25px; } }
 
+.label.red {
+  font-weight: normal;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1;
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+  margin-bottom: inherit;
+  padding: 0.25rem 0.5rem 0.25rem;
+  font-size: 0.6875rem;
+  background-color: rgba(41, 9, 9, 0.45);
+  color: #FFFFFF; }
+.label.blue {
+  font-weight: normal;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1;
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+  margin-bottom: inherit;
+  padding: 0.25rem 0.5rem 0.25rem;
+  font-size: 0.6875rem;
+  background-color: rgba(9, 39, 41, 0.45);
+  color: #FFFFFF; }
+.label.green {
+  font-weight: normal;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1;
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+  margin-bottom: inherit;
+  padding: 0.25rem 0.5rem 0.25rem;
+  font-size: 0.6875rem;
+  background-color: rgba(17, 41, 9, 0.45);
+  color: #FFFFFF; }
+.label.brown {
+  font-weight: normal;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1;
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+  margin-bottom: inherit;
+  padding: 0.25rem 0.5rem 0.25rem;
+  font-size: 0.6875rem;
+  background-color: rgba(41, 41, 9, 0.45);
+  color: #FFFFFF; }
+.label.black {
+  font-weight: normal;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1;
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+  margin-bottom: inherit;
+  padding: 0.25rem 0.5rem 0.25rem;
+  font-size: 0.6875rem;
+  background-color: rgba(0, 0, 0, 0.45);
+  color: #FFFFFF; }
+.label.purple {
+  font-weight: normal;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1;
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+  margin-bottom: inherit;
+  padding: 0.25rem 0.5rem 0.25rem;
+  font-size: 0.6875rem;
+  background-color: rgba(36, 9, 41, 0.45);
+  color: #FFFFFF; }
+
 .calendar-content {
   margin: 2% 5%; }
   .calendar-content .calendar {
@@ -17128,9 +17213,9 @@ h4 {
     .calendar-content .calendar .week {
       border-top-width: 0; }
       .calendar-content .calendar .week:nth-child(even) {
-        background-color: rgba(255, 255, 255, 0.7); }
+        background-color: rgba(255, 255, 255, 0.8); }
       .calendar-content .calendar .week:nth-child(odd) {
-        background-color: rgba(255, 255, 255, 0.6); }
+        background-color: rgba(255, 255, 255, 0.7); }
       .calendar-content .calendar .week li {
         position: relative;
         height: 108px;
@@ -17159,90 +17244,6 @@ h4 {
           color: #FFFFFF;
           border-radius: 3px;
           font-weight: bold; }
-        .calendar-content .calendar .week li .label.red {
-          font-weight: normal;
-          font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-          text-align: center;
-          text-decoration: none;
-          line-height: 1;
-          white-space: nowrap;
-          display: inline-block;
-          position: relative;
-          margin-bottom: inherit;
-          padding: 0.25rem 0.5rem 0.25rem;
-          font-size: 0.6875rem;
-          background-color: rgba(41, 9, 9, 0.45);
-          color: #FFFFFF; }
-        .calendar-content .calendar .week li .label.blue {
-          font-weight: normal;
-          font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-          text-align: center;
-          text-decoration: none;
-          line-height: 1;
-          white-space: nowrap;
-          display: inline-block;
-          position: relative;
-          margin-bottom: inherit;
-          padding: 0.25rem 0.5rem 0.25rem;
-          font-size: 0.6875rem;
-          background-color: rgba(9, 39, 41, 0.45);
-          color: #FFFFFF; }
-        .calendar-content .calendar .week li .label.green {
-          font-weight: normal;
-          font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-          text-align: center;
-          text-decoration: none;
-          line-height: 1;
-          white-space: nowrap;
-          display: inline-block;
-          position: relative;
-          margin-bottom: inherit;
-          padding: 0.25rem 0.5rem 0.25rem;
-          font-size: 0.6875rem;
-          background-color: rgba(17, 41, 9, 0.45);
-          color: #FFFFFF; }
-        .calendar-content .calendar .week li .label.brown {
-          font-weight: normal;
-          font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-          text-align: center;
-          text-decoration: none;
-          line-height: 1;
-          white-space: nowrap;
-          display: inline-block;
-          position: relative;
-          margin-bottom: inherit;
-          padding: 0.25rem 0.5rem 0.25rem;
-          font-size: 0.6875rem;
-          background-color: rgba(41, 41, 9, 0.45);
-          color: #FFFFFF; }
-        .calendar-content .calendar .week li .label.black {
-          font-weight: normal;
-          font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-          text-align: center;
-          text-decoration: none;
-          line-height: 1;
-          white-space: nowrap;
-          display: inline-block;
-          position: relative;
-          margin-bottom: inherit;
-          padding: 0.25rem 0.5rem 0.25rem;
-          font-size: 0.6875rem;
-          background-color: rgba(0, 0, 0, 0.45);
-          color: #FFFFFF; }
-        .calendar-content .calendar .week li .label.purple {
-          font-weight: normal;
-          font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-          text-align: center;
-          text-decoration: none;
-          line-height: 1;
-          white-space: nowrap;
-          display: inline-block;
-          position: relative;
-          margin-bottom: inherit;
-          padding: 0.25rem 0.5rem 0.25rem;
-          font-size: 0.6875rem;
-          background-color: rgba(36, 9, 41, 0.45);
-          color: #FFFFFF; }
         .calendar-content .calendar .week li .hover {
           display: none;
           position: absolute;
@@ -17255,8 +17256,38 @@ h4 {
           font-weight: bold;
           line-height: 108px;
           background-color: rgba(0, 0, 0, 0.85); }
-        .calendar-content .calendar .week li:hover .hover {
-          display: block;
-          cursor: pointer; }
+        @media only screen and (min-width: 40.063em) {
+          .calendar-content .calendar .week li:hover .hover {
+            display: block;
+            cursor: pointer; } }
+
+#day-popup .task {
+  line-height: 24px; }
+  #day-popup .task.done .time, #day-popup .task.done .label, #day-popup .task.done .task-title {
+    text-decoration: line-through; }
+  #day-popup .task input {
+    line-height: 24px;
+    margin: 0 6px 0 0; }
+  #day-popup .task div {
+    display: inline-block;
+    line-height: 24px;
+    vertical-align: top; }
+  #day-popup .task i {
+    display: inline-block;
+    font-size: 24px;
+    line-height: 24px; }
+  #day-popup .task .time {
+    margin-right: 6px; }
+  #day-popup .task .category {
+    height: 24px;
+    margin-right: 6px;
+    padding: 0 10px; }
+  #day-popup .task .task-title {
+    display: inline; }
+#day-popup .add-new-record-button {
+  margin-top: 25px; }
+
+#add-new {
+  display: none; }
 
 /*# sourceMappingURL=app.css.map */

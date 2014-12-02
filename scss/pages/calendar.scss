@@ -1,18 +1,27 @@
+$label-opacity: 0.45;
+$label-red: rgba(41, 9, 9, $label-opacity);
+$label-blue: rgba(9, 39, 41, $label-opacity);
+$label-green: rgba(17, 41, 9, $label-opacity);
+$label-brown: rgba(41, 41, 9, $label-opacity);
+$label-black: rgba(0, 0, 0, $label-opacity);
+$label-purple: rgba(36, 9, 41, $label-opacity);
+
+.label {
+    &.red { @include label($bg:$label-red); }
+    &.blue { @include label($bg:$label-blue); }
+    &.green { @include label($bg:$label-green); }
+    &.brown { @include label($bg:$label-brown); }
+    &.black { @include label($bg:$label-black); }
+    &.purple { @include label($bg:$label-purple); }
+}
+
 .calendar-content {
 
     $border-color: rgba(0, 0, 0, 0.5);
     $day-names-bg: rgba(0, 0, 0, 0.6);
-    $extra-light-bg: rgba(255, 255, 255, 0.6);
-    $light-bg: rgba(255, 255, 255, 0.7);
+    $extra-light-bg: rgba(255, 255, 255, 0.7);
+    $light-bg: rgba(255, 255, 255, 0.8);
     $day-label-bg: rgba(0, 0, 0, 0.7);
-
-    $label-opacity: 0.45;
-    $label-red: rgba(41, 9, 9, $label-opacity);
-    $label-blue: rgba(9, 39, 41, $label-opacity);
-    $label-green: rgba(17, 41, 9, $label-opacity);
-    $label-brown: rgba(41, 41, 9, $label-opacity);
-    $label-black: rgba(0, 0, 0, $label-opacity);
-    $label-purple: rgba(36, 9, 41, $label-opacity);
 
     margin: 2% 5%;
 
@@ -63,15 +72,6 @@
                     font-weight: bold;
                 }
 
-                .label {
-                    &.red { @include label($bg:$label-red); }
-                    &.blue { @include label($bg:$label-blue); }
-                    &.green { @include label($bg:$label-green); }
-                    &.brown { @include label($bg:$label-brown); }
-                    &.black { @include label($bg:$label-black); }
-                    &.purple { @include label($bg:$label-purple); }
-                }
-
                 .hover {
                     display: none;
                     position: absolute;
@@ -86,13 +86,66 @@
                     background-color: rgba(0, 0, 0, 0.85);
                 }
 
-                &:hover {
-                    .hover {
-                        display: block;
-                        cursor: pointer;
+                @media #{$medium-up} {
+                    &:hover {
+                        .hover {
+                            display: block;
+                            cursor: pointer;
+                        }
                     }
                 }
             }
         }
     }
+}
+
+#day-popup {
+
+    .task {
+
+        line-height: 24px;
+
+        &.done {
+            .time, .label, .task-title {
+                text-decoration: line-through;
+            }
+        }
+
+        input {
+            line-height: 24px;
+            margin: 0 6px 0 0;
+        }
+
+        div {
+            display: inline-block;
+            line-height: 24px;
+            vertical-align: top;
+        }
+
+        i {
+            display: inline-block;
+            font-size: 24px;
+            line-height: 24px;
+        }
+
+        .time {
+            margin-right: 6px;
+        }
+
+        .category {
+            height: 24px;
+            margin-right: 6px;
+            padding: 0 10px;
+        }
+
+        .task-title {
+            display: inline;
+        }
+    }
+
+    .add-new-record-button { margin-top: 25px; }
+}
+
+#add-new {
+    display: none;
 }
