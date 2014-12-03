@@ -1,5 +1,3 @@
-var credentials = require('./credentials');
-
 module.exports = function(grunt) {
 
     var tasks = [
@@ -34,9 +32,6 @@ module.exports = function(grunt) {
             }
         },
         qunit: {
-            options: {
-                httpBase: credentials.host   
-            },
             all: ['tests/*.html']
         }
     });
