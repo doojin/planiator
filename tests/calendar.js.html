@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Calendar.js</title>
+    <link rel="stylesheet" href="/libs/qunit/qunit/qunit.css"/>
+    
+    <style>
+        #day-popup {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/foundation.min.js"></script>
+    <script src="/assets/js/timepicker.js"></script>
+    <script src="/assets/js/calendar.js"></script>
+    <script src="/libs/qunit/qunit/qunit.js"></script>
+    
+    <script type="text/javascript">
+        var fixture = $('#qunit-fixture');
+        
+        QUnit.module('doTask()');
+        
+        QUnit.test('Should add "done" class if input is checked', function(assert) {
+            var testCheckbox = $('<input type="checkbox" checked/>')
+            var parent = $('<div>');
+            $(parent).append(testCheckbox);
+            $(fixture).append(parent);
+        
+            doTask(testCheckbox);
+            
+            assert.equal($(parent).hasClass('done'), true);
+        });
+        
+        QUnit.test('Should remove "done" class if input is checked', function(assert) {
+            var testCheckbox = $('<input type="checkbox"/>')
+            var parent = $('<div class="done">');
+            $(parent).append(testCheckbox);
+            $(fixture).append(parent);
+        
+            doTask(testCheckbox);
+            
+            assert.equal($(parent).hasClass('done'), false);
+        });
+        
+        QUnit.module('isOverlayDisplayed()');
+        
+        QUnit.test('Should return true for element with ".hover" child', function(assert) {
+            var div = $('<div></div>');
+            var hover = $('<div class="hover"></div>');
+            $(div).append(hover);
+            $(fixture).append(div);
+            
+            assert.equal(isOverlayDisplayed($(div)), true);
+        });
+        
+        QUnit.test('Should return false for element without ".hover" child', function(assert) {
+            var div = $('<div></div>');
+            $(fixture).append(div);
+            
+            assert.equal(isOverlayDisplayed($(div)), false);
+        });
+        
+        QUnit.module('hasDataId()');
+        
+        QUnit.test('Should return true for element with not empty data-id', function(assert) {
+            var div = $('<div data-id="1"></div>');
+            assert.equal(hasDataId($(div)), true);
+        });
+        
+        QUnit.test('Should return false for element with empty data-id', function(assert) {
+            var div = $('<div data-id=""></div>');
+            assert.equal(hasDataId($(div)), false);
+        });
+        
+        QUnit.test('Should return false for element with no data-id attribute', function(assert) {
+            var div = $('<div></div>');
+            assert.equal(hasDataId($(div)), false);
+        });
+        
+        QUnit.module('showOverlay()');
+        
+        QUnit.test('Should append element if parent element has data-id and overlay is not displayed', function(assert) {
+            var div = $('<div data-id="1"></div>');
+            
+            assert.equal($(div).html(), '');
+            
+            showOverlay(div);
+            
+            assert.equal($(div).html(), '<div class="hover">Show</div>');
+        });
+        
+        QUnit.test('Should not append element if parent element has no data-id attribute', function(assert) {
+            var div = $('<div></div>');
+            
+            showOverlay(div);
+            
+            assert.equal($(div).html(), '');
+        });
+        
+        QUnit.test('Should not append element if parent element has overlay is already displayed', function(assert) {
+            var div = $('<div></div>');
+            var overlay = $('<div class="hover"></div>');
+            $(div).append(overlay);
+            
+            showOverlay(div);
+            
+            assert.equal($(div).html(), '<div class="hover"></div>');
+        });
+        
+        QUnit.module('hideOverlay()');
+        
+        QUnit.test('Should remove overlay', function(assert) {
+            var div = $('<div></div>');
+            var overlay = $('<div class="hover"></div>');
+            $(div).append(overlay);
+            
+            assert.equal($(div).html(), '<div class="hover"></div>');
+            
+            hideOverlay(div);
+            
+            assert.equal($(div).html(), '');
+        });
+        
+    </script>
+</body>
+</html>

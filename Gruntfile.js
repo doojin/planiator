@@ -1,8 +1,11 @@
+var credentials = require('./credentials');
+
 module.exports = function(grunt) {
 
     var tasks = [
         'grunt-contrib-sass',
-        'grunt-contrib-copy'
+        'grunt-contrib-copy',
+        'grunt-contrib-qunit'
     ];
 
     tasks.forEach(function(task) {
@@ -29,9 +32,16 @@ module.exports = function(grunt) {
                     {expand: true, src: ['scss/**'], dest: 'libs/foundation'}    
                 ]
             }
+        },
+        qunit: {
+            options: {
+                httpBase: credentials.host   
+            },
+            all: ['tests/*.html']
         }
     });
 
     grunt.registerTask('scss', ['copy', 'sass']);
+    grunt.registerTask('test', ['qunit']);
 
 };

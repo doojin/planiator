@@ -8,9 +8,17 @@ var ADD_NEW_POPUP       = '#add-new-popup';
 var HOVER_CLASS         = '.hover';
 
 $(document).ready(function() {
-    $(DAY_LI).on('mouseenter', showOverlay);
-    $(DAY_LI).on('mouseleave', hideOverlay);
+    
+    $(DAY_LI).on('mouseenter', function() {
+        showOverlay(this);
+    });
+    
+    $(DAY_LI).on('mouseleave', function() {
+        hideOverlay(this);
+    });
+    
     $(DAY_LI).on('click', showDayPopup);
+    
     $(NEW_RECORD_BUTTON).on('click', showAddNewPopup);
 
     // Timepicker widget
@@ -22,7 +30,9 @@ $(document).ready(function() {
         $(element).timepicker(tpSettings);
     });
 
-    $(TASK_CHECKBOX).on('change', doTask);
+    $(TASK_CHECKBOX).on('change', function() {
+        doTask(this);
+    });
 });
 
 // Shows popup with information about daily tasks
@@ -36,9 +46,9 @@ function showAddNewPopup() {
 }
 
 // Strikes out done task
-function doTask() {
-    var parent = $(this).parent();
-    if ($(this).is(':checked')) {
+function doTask(element) {
+    var parent = $(element).parent();
+    if ($(element).is(':checked')) {
         $(parent).addClass('done');
     } else {
         $(parent).removeClass('done');
@@ -57,18 +67,18 @@ function hasDataId(element) {
 }
 
 // Displays overlay over the li element
-function showOverlay() {
-    if (hasDataId(this) && !isOverlayDisplayed(this)) {
+function showOverlay(element) {
+    if (hasDataId(element) && !isOverlayDisplayed(element)) {
         $('<div/>', {
             class: 'hover',
             text: 'Show'
-        }).appendTo(this);
+        }).appendTo(element);
     }
 }
 
 // Hides overlay from the li element
-function hideOverlay() {
-    if (isOverlayDisplayed(this)) {
-        $(this).children(HOVER_CLASS).remove();
+function hideOverlay(element) {
+    if (isOverlayDisplayed(element)) {
+        $(element).children(HOVER_CLASS).remove();
     }
 }

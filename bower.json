@@ -16,5 +16,8 @@
   ],
   "dependencies": {
     "foundation": "latest"
+  },
+  "devDependencies": {
+    "qunit": "~1.15.0"
   }
 }
