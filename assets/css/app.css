@@ -1,4 +1,3 @@
-@charset "UTF-8";
 meta.foundation-version {
   font-family: "/5.4.7/"; }
 
@@ -17078,34 +17077,34 @@ h4 {
     .content {
       width: 65%; } }
 
-.homepage-content label {
-  margin-bottom: 5px;
-  text-align: left;
-  color: #FFFFFF; }
-.homepage-content input[type=text], .homepage-content input[type=password] {
-  background-color: rgba(255, 255, 255, 0.75); }
-.homepage-content input[type=text]:focus, .homepage-content input[type=password]:focus {
-  background-color: rgba(255, 255, 255, 0.85); }
 .homepage-content .main {
   padding: 15% 0; }
-.homepage-content .row.remember-me {
-  text-align: left; }
-.homepage-content .sign-in form, .homepage-content .sign-up form {
-  padding: 25px 35px 15px 35px;
-  background-color: rgba(0, 0, 0, 0.5);
-  text-align: center;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px; }
-  .homepage-content .sign-in form .pn-button, .homepage-content .sign-up form .pn-button {
-    margin-top: 10px; }
-.homepage-content .sign-in .pn-button.green {
-  background-color: rgba(70, 179, 79, 0.7); }
-  .homepage-content .sign-in .pn-button.green:hover {
-    background-color: #46B34F; }
-@media only screen and (max-width: 40em) {
-  .homepage-content .sign-up {
-    margin-top: 25px; } }
+  .homepage-content .main form label {
+    margin-bottom: 5px;
+    text-align: left;
+    color: #FFFFFF; }
+  .homepage-content .main form input[type=text], .homepage-content .main form input[type=password] {
+    background-color: rgba(255, 255, 255, 0.75); }
+  .homepage-content .main form input[type=text]:focus, .homepage-content .main form input[type=password]:focus {
+    background-color: rgba(255, 255, 255, 0.85); }
+  .homepage-content .main form .row.remember-me {
+    text-align: left; }
+  .homepage-content .main .sign-in form, .homepage-content .main .sign-up form {
+    padding: 25px 35px 15px 35px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; }
+    .homepage-content .main .sign-in form .pn-button, .homepage-content .main .sign-up form .pn-button {
+      margin-top: 10px; }
+  .homepage-content .main .sign-in .pn-button.green {
+    background-color: rgba(70, 179, 79, 0.7); }
+    .homepage-content .main .sign-in .pn-button.green:hover {
+      background-color: #46B34F; }
+  @media only screen and (max-width: 40em) {
+    .homepage-content .main .sign-up {
+      margin-top: 25px; } }
 
 .label.red {
   font-weight: normal;
@@ -17192,6 +17191,12 @@ h4 {
   background-color: rgba(36, 9, 41, 0.45);
   color: #FFFFFF; }
 
+@media only screen and (min-width: 40.063em) {
+  .top-bar .top-bar-section .left {
+    margin-left: 5%; }
+  .top-bar .top-bar-section .right {
+    margin-right: 5%; } }
+
 .calendar-content {
   margin: 2% 5%; }
   .calendar-content .calendar {
@@ -17200,18 +17205,21 @@ h4 {
     -moz-border-radius: 5px;
     border-radius: 5px;
     padding: 20px 30px; }
-    .calendar-content .calendar ul {
-      border: solid 1px rgba(0, 0, 0, 0.5); }
     .calendar-content .calendar li {
       color: #FFFFFF; }
     .calendar-content .calendar .day-names {
-      background-color: rgba(0, 0, 0, 0.6); }
+      background-color: rgba(0, 0, 0, 0.6);
+      border: solid 1px black; }
       .calendar-content .calendar .day-names li {
         height: 36px;
         line-height: 36px;
         text-align: center; }
     .calendar-content .calendar .week {
-      border-top-width: 0; }
+      border-top-width: 0;
+      border-left: solid 1px black;
+      border-right: solid 1px black; }
+      .calendar-content .calendar .week:last-child {
+        border-bottom: solid 1px black; }
       .calendar-content .calendar .week:nth-child(even) {
         background-color: rgba(255, 255, 255, 0.8); }
       .calendar-content .calendar .week:nth-child(odd) {
@@ -17220,11 +17228,11 @@ h4 {
         position: relative;
         height: 108px;
         overflow: hidden;
-        border-right: solid 1px rgba(0, 0, 0, 0.5); }
+        border-right: solid 1px rgba(0, 0, 0, 0.3); }
         @media only screen and (max-width: 40em) {
           .calendar-content .calendar .week li {
             text-align: center;
-            border-top: solid 1px rgba(0, 0, 0, 0.5); } }
+            border-top: solid 1px rgba(0, 0, 0, 0.3); } }
         @media only screen and (min-width: 40.063em) {
           .calendar-content .calendar .week li:last-child {
             border-right-width: 0; } }
@@ -17245,7 +17253,6 @@ h4 {
           border-radius: 3px;
           font-weight: bold; }
         .calendar-content .calendar .week li .hover {
-          display: none;
           position: absolute;
           width: 100%;
           height: 108px;
@@ -17256,6 +17263,9 @@ h4 {
           font-weight: bold;
           line-height: 108px;
           background-color: rgba(0, 0, 0, 0.85); }
+          @media only screen and (max-width: 40em) {
+            .calendar-content .calendar .week li .hover {
+              display: none; } }
         @media only screen and (min-width: 40.063em) {
           .calendar-content .calendar .week li:hover .hover {
             display: block;
