@@ -38,5 +38,4 @@ module.exports = function(grunt) {
 
     grunt.registerTask('scss', ['copy', 'sass']);
     grunt.registerTask('test', ['qunit']);
-
 };

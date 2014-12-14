@@ -1,22 +1,5 @@
-$label-opacity: 0.45;
-$label-red: rgba(41, 9, 9, $label-opacity);
-$label-blue: rgba(9, 39, 41, $label-opacity);
-$label-green: rgba(17, 41, 9, $label-opacity);
-$label-brown: rgba(41, 41, 9, $label-opacity);
-$label-black: rgba(0, 0, 0, $label-opacity);
-$label-purple: rgba(36, 9, 41, $label-opacity);
-
 $global-margin-lr: 5%;
 $global-margin-tb: 2%;
-
-.label {
-    &.red { @include label($bg:$label-red); }
-    &.blue { @include label($bg:$label-blue); }
-    &.green { @include label($bg:$label-green); }
-    &.brown { @include label($bg:$label-brown); }
-    &.black { @include label($bg:$label-black); }
-    &.purple { @include label($bg:$label-purple); }
-}
 
 .top-bar {
     .top-bar-section {
@@ -39,6 +22,7 @@ $global-margin-tb: 2%;
         $extra-light-bg: rgba(255, 255, 255, 0.7);
         $light-bg: rgba(255, 255, 255, 0.8);
         $day-label-bg: rgba(0, 0, 0, 0.7);
+        $task-label-bg: rgba(0, 0, 0, 0.4);
         
         @include block;
         padding: 20px 30px;
@@ -76,6 +60,7 @@ $global-margin-tb: 2%;
             li {
                 position: relative;
                 height: 108px;
+                padding-bottom: 4px;
                 overflow: hidden;
                 border-right: solid 1px $border-color;
                 
@@ -94,7 +79,25 @@ $global-margin-tb: 2%;
                 
                 .day {
                     @include label($bg:$day-label-bg, $radius:true, $text-size: rem-calc(12));
+                    margin-bottom: 5px;
                     font-weight: bold;
+                }
+                
+                .task {
+                    @include label($bg:$task-label-bg, $text-size: rem-calc(11));
+                    display: block;
+                    margin-bottom: 2px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                
+                .more {
+                    display: block;
+                    font-size: 11px;
+                    color: #000000;
+                    text-align: center;
+                    font-weight: bold;
+                    line-height: 10px;
                 }
                 
                 .hover {
@@ -127,49 +130,29 @@ $global-margin-tb: 2%;
 }
 
 #day-popup {
-
-    .task {
-
-        line-height: 24px;
-
-        &.done {
-            .time, .label, .task-title {
-                text-decoration: line-through;
+    
+    $taskBg: rgba(0, 0, 0, 0.1);
+    $taskBorder: rgba(0, 0, 0, 0.2);
+    
+    .accordion {
+        .accordion-navigation {
+            
+            .content {
+                margin: 0;
+                padding: 0;
+            }
+            
+            a {
+                @include round(4px);
+                margin-top: 7px;
+                background-color: $taskBg;
+                border: solid 1px $taskBorder;
+                text-align: center;
+                font-size: 12px;
+                padding: 5px;
             }
         }
-
-        input {
-            line-height: 24px;
-            margin: 0 6px 0 0;
-        }
-
-        div {
-            display: inline-block;
-            line-height: 24px;
-            vertical-align: top;
-        }
-
-        i {
-            display: inline-block;
-            font-size: 24px;
-            line-height: 24px;
-        }
-
-        .time {
-            margin-right: 6px;
-        }
-
-        .category {
-            height: 24px;
-            margin-right: 6px;
-            padding: 0 10px;
-        }
-
-        .task-title {
-            display: inline;
-        }
-    }
-
+    }    
     .add-new-record-button { margin-top: 25px; }
 }
 
