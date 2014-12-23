@@ -17188,6 +17188,8 @@ h4 {
           margin-bottom: 2px;
           overflow: hidden;
           text-overflow: ellipsis; }
+          .calendar-content .calendar .week li .task.done {
+            text-decoration: line-through; }
         .calendar-content .calendar .week li .more {
           display: block;
           font-size: 11px;
@@ -17216,9 +17218,34 @@ h4 {
 
 #day-popup .day-of-week, #day-popup .date {
   font-size: 24px; }
+#day-popup .accordion .accordion-navigation a {
+  color: #FFFFFF;
+  background-color: rgba(0, 0, 0, 0.4) !important; }
+  #day-popup .accordion .accordion-navigation a.done {
+    text-decoration: line-through; }
 #day-popup .accordion .accordion-navigation .content {
+  width: 100%;
   margin: 0;
   padding: 0; }
+  #day-popup .accordion .accordion-navigation .content .row {
+    width: 100%;
+    max-width: 100%; }
+    #day-popup .accordion .accordion-navigation .content .row .columns {
+      padding: 0 4px; }
+      #day-popup .accordion .accordion-navigation .content .row .columns.time {
+        margin-top: 5px; }
+        #day-popup .accordion .accordion-navigation .content .row .columns.time span {
+          margin: 0 5px;
+          font-weight: bold; }
+      #day-popup .accordion .accordion-navigation .content .row .columns.description {
+        margin-bottom: 5px;
+        color: #666666; }
+      #day-popup .accordion .accordion-navigation .content .row .columns.controls {
+        margin-top: 8px;
+        margin-bottom: 0px; }
+        #day-popup .accordion .accordion-navigation .content .row .columns.controls .pn-button {
+          padding: 4px 7px;
+          font-size: 14px; }
 #day-popup .accordion .accordion-navigation a {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;

@@ -1,6 +1,8 @@
 $global-margin-lr: 5%;
 $global-margin-tb: 2%;
 
+$task-label-bg: rgba(0, 0, 0, 0.4);
+
 .top-bar {
     .top-bar-section {
         @media #{$medium-up} {
@@ -22,7 +24,6 @@ $global-margin-tb: 2%;
         $extra-light-bg: rgba(255, 255, 255, 0.7);
         $light-bg: rgba(255, 255, 255, 0.8);
         $day-label-bg: rgba(0, 0, 0, 0.7);
-        $task-label-bg: rgba(0, 0, 0, 0.4);
 
         @include block;
         padding: 20px 30px;
@@ -89,6 +90,10 @@ $global-margin-tb: 2%;
                     margin-bottom: 2px;
                     overflow: hidden;
                     text-overflow: ellipsis;
+
+                    &.done {
+                        text-decoration: line-through;
+                    }
                 }
 
                 .more {
@@ -141,9 +146,53 @@ $global-margin-tb: 2%;
     .accordion {
         .accordion-navigation {
 
+            a {
+                color: #FFFFFF;
+                background-color: $task-label-bg !important;
+
+                &.done {
+                    text-decoration: line-through;
+                }
+            }
+
             .content {
+                width: 100%;
                 margin: 0;
                 padding: 0;
+
+                .row {
+                    width: 100%;
+                    max-width: 100%;
+
+                    .columns {
+                        padding: 0 4px;
+
+                        &.time {
+                            margin-top: 5px;
+                            span {
+                                margin: 0 5px;
+                                font-weight: bold;
+                            }
+                        }
+
+                        &.description {
+                            margin-bottom: 5px;
+                            color: #666666;
+                        }
+
+                        &.controls {
+                            margin: {
+                                top: 8px;
+                                bottom: 0px;
+                            }
+
+                            .pn-button {
+                                padding: 4px 7px;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
             }
 
             a {

@@ -170,7 +170,7 @@
                 </li>
                 <li data-id="26012014">
                     <div class="day">26</div>
-                    <div class="task">Task1</div>
+                    <div class="done task">Task1</div>
                 </li>
                 <li data-id="27012014">
                     <div class="day">27</div>
@@ -200,15 +200,52 @@
             <dl class="accordion" data-accordion>
                 <dd class="accordion-navigation">
                     <a href="#task1">Task1</a>
-                    <div id="task1" class="content">123</div>
-                    <a href="#task2">12 asdas das dasd sad asdsdasddasdasd  dasd sadasdasds34 12 asdas das dasd sad asdsdasddasdasd  dasd sadasdasds34</a>
-                    <div id="task2" class="content">dasas</div>
+                    <div id="task1" class="content">
+                        <div class="row">
+                            <div class="time small-9 columns">
+                                From <span><i class="fi-clock"></i> 12:30</span> to <span><i class="fi-clock"></i> 14:30</span>
+                            </div>
+                            <div class="time small-7 columns text-right">
+                                Family
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="description small-16 columns">
+                                Need to visit my grandma
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="controls small-16 columns text-center">
+                                <div class="green pn-button">Mark as Done</div>
+                                <div class="pn-button">Edit Task</div>
+                                <div class="red pn-button">Delete Task</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#task2" class="done">Clean my room</a>
+                    <div id="task2" class="content">
+                        <div class="row">
+                            <div class="time small-9 columns">
+                                <span><i class="fi-clock"></i> All the day</span>
+                            </div>
+                            <div class="time small-7 columns text-right">
+                                House
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="controls small-16 columns text-center">
+                                <div class="green pn-button">Mark as Undone</div>
+                                <div class="pn-button">Edit Task</div>
+                                <div class="red pn-button">Delete Task</div>
+                            </div>
+                        </div>
+                    </div>
                 </dd>
             </dl>
 
             <div class="add-new-record-button row">
                 <div class="small-16 text-center columns">
-                    <div class="green pn-button">Add New</div>
+                    <div class="green pn-button">Create New Task</div>
                 </div>
             </div>
         </div>
