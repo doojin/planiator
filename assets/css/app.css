@@ -1,3 +1,4 @@
+@charset "UTF-8";
 meta.foundation-version {
   font-family: "/5.4.7/"; }
 
@@ -17213,6 +17214,8 @@ h4 {
             display: block;
             cursor: pointer; } }
 
+#day-popup .day-of-week, #day-popup .date {
+  font-size: 24px; }
 #day-popup .accordion .accordion-navigation .content {
   margin: 0;
   padding: 0; }

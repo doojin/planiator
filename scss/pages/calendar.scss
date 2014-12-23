@@ -15,7 +15,7 @@ $global-margin-tb: 2%;
     margin: $global-margin-tb $global-margin-lr;
 
     .calendar {
-        
+
         $border-color: rgba(0, 0, 0, 0.3);
         $border-dark-color: rgba(0, 0, 0, 1);
         $day-names-bg: rgba(0, 0, 0, 0.6);
@@ -23,12 +23,12 @@ $global-margin-tb: 2%;
         $light-bg: rgba(255, 255, 255, 0.8);
         $day-label-bg: rgba(0, 0, 0, 0.7);
         $task-label-bg: rgba(0, 0, 0, 0.4);
-        
+
         @include block;
         padding: 20px 30px;
-        
+
         li { color: #FFFFFF; }
-        
+
         .day-names {
             background-color: $day-names-bg;
             border: solid 1px $border-dark-color;
@@ -39,13 +39,13 @@ $global-margin-tb: 2%;
                 text-align: center;
             }
         }
-        
+
         .week {
             // Border styles
             border: {
                 top: {
-                    width: 0;    
-                }  
+                    width: 0;
+                }
                 left: solid 1px $border-dark-color;
                 right: solid 1px $border-dark-color;
             }
@@ -53,36 +53,36 @@ $global-margin-tb: 2%;
             &:last-child {
                 border-bottom: solid 1px $border-dark-color;
             }
-            
+
             &:nth-child(even) { background-color: $light-bg; }
             &:nth-child(odd) { background-color: $extra-light-bg; }
-            
+
             li {
                 position: relative;
                 height: 108px;
                 padding-bottom: 4px;
                 overflow: hidden;
                 border-right: solid 1px $border-color;
-                
+
                 @media #{$small-only} {
                     & {
                         text-align: center;
                         border-top: solid 1px $border-color;
                     }
                 }
-                
+
                 @media #{$medium-up} {
                     &:last-child {
                         border-right-width: 0;
                     }
                 }
-                
+
                 .day {
                     @include label($bg:$day-label-bg, $radius:true, $text-size: rem-calc(12));
                     margin-bottom: 5px;
                     font-weight: bold;
                 }
-                
+
                 .task {
                     @include label($bg:$task-label-bg, $text-size: rem-calc(11));
                     display: block;
@@ -90,7 +90,7 @@ $global-margin-tb: 2%;
                     overflow: hidden;
                     text-overflow: ellipsis;
                 }
-                
+
                 .more {
                     display: block;
                     font-size: 11px;
@@ -99,7 +99,7 @@ $global-margin-tb: 2%;
                     font-weight: bold;
                     line-height: 10px;
                 }
-                
+
                 .hover {
                     @media #{$small-only} {
                         display: none;
@@ -115,7 +115,7 @@ $global-margin-tb: 2%;
                     line-height: 108px;
                     background-color: rgba(0, 0, 0, 0.85);
                 }
-                
+
                 @media #{$medium-up} {
                     &:hover {
                         .hover {
@@ -130,18 +130,22 @@ $global-margin-tb: 2%;
 }
 
 #day-popup {
-    
+
     $taskBg: rgba(0, 0, 0, 0.1);
     $taskBorder: rgba(0, 0, 0, 0.2);
-    
+
+    .day-of-week, .date {
+        font-size: 24px;
+    }
+
     .accordion {
         .accordion-navigation {
-            
+
             .content {
                 margin: 0;
                 padding: 0;
             }
-            
+
             a {
                 @include round(4px);
                 margin-top: 7px;
@@ -152,7 +156,7 @@ $global-margin-tb: 2%;
                 padding: 5px;
             }
         }
-    }    
+    }
     .add-new-record-button { margin-top: 25px; }
 }
 

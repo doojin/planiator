@@ -27,7 +27,7 @@ module.exports = function(grunt) {
         copy: {
             foundation: {
                 files: [
-                    {expand: true, src: ['scss/**'], dest: 'libs/foundation'}    
+                    {expand: true, src: ['scss/**'], dest: 'libs/foundation'}
                 ]
             }
         },
