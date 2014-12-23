@@ -3,3 +3,4 @@
 node_modules/
 libs/
 credentials.js
+*.log
