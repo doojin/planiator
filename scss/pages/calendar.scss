@@ -173,11 +173,25 @@ $task-label-bg: rgba(0, 0, 0, 0.4);
                                 margin: 0 5px;
                                 font-weight: bold;
                             }
+                            @media #{$small-only} {
+                                text-align: center;
+                            }
+                        }
+
+                        &.calendar {
+                            margin-top: 5px;
+                            text-align: right;
+                            @media #{$small-only} {
+                                text-align: center;
+                            }
                         }
 
                         &.description {
                             margin-bottom: 5px;
                             color: #666666;
+                            @media #{$small-only} {
+                                text-align: center;
+                            }
                         }
 
                         &.controls {
