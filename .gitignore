@@ -1,7 +1,8 @@
 .c9/
 .sass-cache/
 node_modules/
-libs/
+lib/
+assets/vendor/
 credentials.js
 *.log
 *.map

@@ -11,8 +11,12 @@ $headings: (
     (h4, 18px)
 );
 
+.reveal-modal-bg {
+    position : fixed;
+}
+
 body {
-    background: url(/assets/img/wallpaper.jpg) no-repeat center center fixed; 
+    background: url(/assets/img/wallpaper.jpg) no-repeat center center fixed;
     @include background-size(cover);
 }
 
@@ -38,13 +42,14 @@ body {
     @media #{$small-only} {
         width: $content-width-small;
     }
-    
+
     @media #{$medium-up} {
         width: $content-width-medium;
     }
-    
+
     margin: 0 auto;
 }
 
 @import "pages/index";
 @import "pages/calendar";
+@import "pages/export";

@@ -14,8 +14,18 @@
     "test",
     "tests"
   ],
+  "exportsOverride": {
+    "foundation": {
+      "/": "/"
+    },
+    "foundation-icon-fonts": {
+      "/": "/"
+    }
+  },
   "dependencies": {
-    "foundation": "latest"
+    "foundation": "latest",
+    "jt.timepicker": "latest",
+    "foundation-icon-fonts": "latest"
   },
   "devDependencies": {
     "qunit": "~1.15.0"

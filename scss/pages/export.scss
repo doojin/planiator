@@ -1,0 +1,14 @@
+$global-margin-lr: 5%;
+$global-margin-tb: 2%;
+
+$export-bg: rgba(0, 0, 0, 0.55);
+$export-color: #FFFFFF;
+
+.export-content {
+
+    margin: $global-margin-tb $global-margin-lr;
+    padding: 2%;
+    background-color: $export-bg;
+    color: $export-color;
+
+}
