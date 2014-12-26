@@ -79,7 +79,7 @@ module.exports = function(grunt) {
                     'assets/vendor/jquery/jquery.min.js': ['assets/vendor/jquery/jquery.js'],
                     'assets/vendor/timepicker/jquery.timepicker.min.js': ['assets/vendor/timepicker/jquery.timepicker.js']
                 }
-            }
+            },
         },
 
         // grunt-contrib-cssmin
@@ -89,11 +89,16 @@ module.exports = function(grunt) {
                     'assets/vendor/icons/foundation-icons.min.css': ['assets/vendor/icons/foundation-icons.css'],
                     'assets/vendor/timepicker/jquery.timepicker.min.css': ['assets/vendor/timepicker/jquery.timepicker.css']
                 }
+            },
+            appstyles: {
+                files: {
+                    'assets/css/app.min.css': ['assets/css/app.css']
+                }
             }
         }
     });
 
-    grunt.registerTask('scss', ['copy:foundation', 'sass']);
+    grunt.registerTask('scss', ['copy:foundation', 'sass', 'cssmin:appstyles']);
     grunt.registerTask('test', ['qunit']);
     grunt.registerTask('deps', ['bower:install', 'copy:dependencies', 'uglify:dependencies', 'cssmin:dependencies']);
 };
