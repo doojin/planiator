@@ -34,6 +34,11 @@ $task-list-li-hover-bg: rgba(255, 255, 255, 0.72);
                 .calendar {
                     @include calendar-label;
                     margin: 5px;
+                    cursor: pointer;
+
+                    input {
+                        cursor: pointer;
+                    }
                 }
             }
         }
@@ -55,15 +60,26 @@ $task-list-li-hover-bg: rgba(255, 255, 255, 0.72);
                     background-color: $task-list-li-bg;
                     color: black;
                     font-size: 14px;
+                    cursor: pointer;
+
+                    input {
+                        cursor: pointer;
+                    }
+
+                    &.invs {
+                        cursor: default;
+
+                        input {
+                            cursor: default;
+                        }
+                    }
 
                     &:hover {
                         background-color: $task-list-li-hover-bg;
-                        cursor: pointer;
                     }
 
                     &.invs:hover {
                         background-color: $task-list-li-bg !important;
-                        cursor: default;
                     }
                 }
             }

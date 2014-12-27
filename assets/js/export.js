@@ -6,6 +6,7 @@ var DAY_MONDAY = 1;
 
 var TASK_LI = '.task-list li';
 
+var CALENDAR_LABELS = '.calendar-list .calendar';
 var CALENDAR_CBXS = '.calendars input[type=checkbox]';
 
 var datepickerConfig = {
@@ -17,9 +18,14 @@ $(document).ready(function() {
     $(INPUT_DATE_FROM).datepicker(datepickerConfig);
     $(INPUT_DATE_TO).datepicker(datepickerConfig);
 
-    $(TASK_LI).click(function(e) {
-        if (e.target == getTaskCheckbox(this)) { return; }
+    $(TASK_LI).on('click', function(e) {
+        if (e.target == getFirstCheckbox(this)) { return; }
         toggleTaskCheckboxState(this);
+    });
+
+    $(CALENDAR_LABELS).on('click', function(e) {
+        if (e.target == getFirstCheckbox(this)) { return; }
+        toggleCalendarCheckboxState(this);
     });
 
     $(CALENDAR_CBXS).on('change', function() {
@@ -33,14 +39,20 @@ function switchCheckbox(checkbox) {
 }
 
 // Returns task checkbox
-function getTaskCheckbox(li) {
-    return $(li).find('input[type="checkbox"]') && $(li).find('input[type="checkbox"]')[0];
+function getFirstCheckbox(element) {
+    return $(element).find('input[type="checkbox"]') && $(element).find('input[type="checkbox"]')[0];
 }
 
 // Changes state of task checkbox
 function toggleTaskCheckboxState(li) {
-    var checkbox = getTaskCheckbox(li);
+    var checkbox = getFirstCheckbox(li);
     !$(li).hasClass('invs') && checkbox && switchCheckbox(checkbox);
+}
+
+// Changes state of calendar checkbox
+function toggleCalendarCheckboxState(div) {
+    var checkbox = getFirstCheckbox(div);
+    checkbox && switchCheckbox(checkbox);
 }
 
 // Changes state of all tasks which belong to calendar

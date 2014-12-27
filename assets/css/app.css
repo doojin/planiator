@@ -18021,10 +18021,14 @@ h4 {
         height: 25px;
         padding: 0 5px;
         line-height: 30px;
+        font-size: 14px;
         color: #FFFFFF;
-        margin: 5px; }
-        .export-content .row.calendars .calendar-list .calendar label {
-          color: #FFFFFF; }
+        margin: 5px;
+        cursor: pointer; }
+        .export-content .row.calendars .calendar-list .calendar span {
+          padding: 0 5px 0 2px; }
+        .export-content .row.calendars .calendar-list .calendar input {
+          cursor: pointer; }
   .export-content .row.tasks {
     margin-top: 25px; }
     .export-content .row.tasks .day {
@@ -18037,13 +18041,18 @@ h4 {
         height: 108px;
         background-color: rgba(255, 255, 255, 0.6);
         color: black;
-        font-size: 14px; }
-        .export-content .row.tasks .task-list li:hover {
-          background-color: rgba(255, 255, 255, 0.72);
+        font-size: 14px;
+        cursor: pointer; }
+        .export-content .row.tasks .task-list li input {
           cursor: pointer; }
-        .export-content .row.tasks .task-list li.invs:hover {
-          background-color: rgba(255, 255, 255, 0.6) !important;
+        .export-content .row.tasks .task-list li.invs {
           cursor: default; }
+          .export-content .row.tasks .task-list li.invs input {
+            cursor: default; }
+        .export-content .row.tasks .task-list li:hover {
+          background-color: rgba(255, 255, 255, 0.72); }
+        .export-content .row.tasks .task-list li.invs:hover {
+          background-color: rgba(255, 255, 255, 0.6) !important; }
     .export-content .row.tasks .checkbox, .export-content .row.tasks .title {
       display: inline-block;
       height: 25px;
