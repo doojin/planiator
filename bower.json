@@ -15,17 +15,15 @@
     "tests"
   ],
   "exportsOverride": {
-    "foundation": {
-      "/": "/"
-    },
-    "foundation-icon-fonts": {
-      "/": "/"
-    }
+    "foundation": {"/": "/"},
+    "foundation-icon-fonts": {"/": "/"},
+    "jquery-ui": {"/": "/"}
   },
   "dependencies": {
     "foundation": "latest",
     "jt.timepicker": "latest",
-    "foundation-icon-fonts": "latest"
+    "foundation-icon-fonts": "latest",
+    "jquery-ui": "latest"
   },
   "devDependencies": {
     "qunit": "~1.15.0"

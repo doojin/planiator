@@ -3,16 +3,270 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Planiator</title>
-    <link rel="stylesheet" type="text/css" href="/assets/css/app.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/assets/foundation-icons/foundation-icons.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/assets/css/timepicker.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/app.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/vendor/jquery/jquery-ui.min.css"/>
 </head>
 <body>
     <div class="export-content">
-        Select period:
+        <div class="row">
+            <div class="small-8 columns">
+                Period from: <input type="text" class="text-center inline" id="from" value="01.12.2014"/>
+            </div>
+            <div class="small-8 columns text-right">
+                Period to: <input type="text" class="text-center inline" id="to" value="31.01.2015"/>
+            </div>
+        </div>
+        <div class="calendars row">
+            <div class="small-16 columns">
+                Calendars for export:
+                <div class="calendar-list">
+                    <div class="calendar" style="background-color: #404040;">
+                        <input type="checkbox" id="c0" checked/>
+                        <label for="c0">Default</label>
+                    </div>
+                    <div class="calendar" style="background-color: #204B85;">
+                        <input type="checkbox" id="c1" checked/>
+                        <label for="c1">Family</label>
+                    </div>
+                    <div class="calendar" style="background-color: #591B5C;">
+                        <input type="checkbox" id="c2" checked/>
+                        <label for="c2">Friends</label>
+                    </div>
+                    <div class="calendar" style="background-color: #691E00;">
+                        <input type="checkbox" id="c3" checked/>
+                        <label for="c3">University</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tasks row">
+            <div class="small-16 columns">
+                <div class="small-block-grid-1">
+                    <div class="day">Friday, December 1, 2014</div>
+                </div>
+                <ul class="task-list small-block-grid-5">
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" data-calendar="c1" checked/>
+                            </div>
+                            <div class="title">
+                                Visit my grandma
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Task description
+                        </div>
+                    </li>
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" data-calendar="c1" checked/>
+                            </div>
+                            <div class="title">
+                                Do my homework
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description
+                        </div>
+                    </li>
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Prepare for test
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Go for a walk with dog
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Task description Task description
+                        </div>
+                    </li>
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Finish course work
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Task description
+                        </div>
+                    </li>
+                </ul>
+                <ul class="task-list small-block-grid-5">
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Make hirecut
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Do nothing
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Task description
+                        </div>
+                    </li>
+                    <li class="invs"></li>
+                    <li class="invs"></li>
+                    <li class="invs"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="tasks row">
+            <div class="small-16 columns">
+                <div class="small-block-grid-1">
+                    <div class="day">Friday, December 1, 2014</div>
+                </div>
+                <ul class="task-list small-block-grid-5">
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Visit my grandma
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Task description
+                        </div>
+                    </li>
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Do my homework
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description
+                        </div>
+                    </li>
+                    <li class="invs"></li>
+                    <li class="invs"></li>
+                    <li class="invs"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="tasks row">
+            <div class="small-16 columns">
+                <div class="small-block-grid-1">
+                    <div class="day">Friday, December 1, 2014</div>
+                </div>
+                <ul class="task-list small-block-grid-5">
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Visit my grandma
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Task description
+                        </div>
+                    </li>
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Do my homework
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description
+                        </div>
+                    </li>
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Prepare for test
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Go for a walk with dog
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Task description Task description
+                        </div>
+                    </li>
+                    <li class="invs"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="tasks row">
+            <div class="small-16 columns">
+                <div class="small-block-grid-1">
+                    <div class="day">Friday, December 1, 2014</div>
+                </div>
+                <ul class="task-list small-block-grid-5">
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Visit my grandma
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Task description
+                        </div>
+                    </li>
+                    <li class="invs"></li>
+                    <li class="invs"></li>
+                    <li class="invs"></li>
+                    <li class="invs"></li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <script src="/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/assets/vendor/jquery/jquery-ui.min.js"></script>
+    <script src="/assets/vendor/jquery/datepicker.js"></script>
+    <script src="/assets/js/export.js"></script>
     <script src="/assets/vendor/foundation/js/foundation.min.js"></script>
     <script>
         $(document).foundation();

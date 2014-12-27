@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Calendar.js</title>
+    <link rel="stylesheet" href="/lib/qunit/qunit.css"/>
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+
+    <script src="../assets/vendor/jquery/jquery.min.js"></script>
+    <script src="../assets/vendor/jquery/jquery-ui.min.js"></script>
+    <script src="../assets/vendor/jquery/datepicker.js"></script>
+    <script src="../assets/vendor/foundation/js/foundation.min.js"></script>
+    <script src="../assets/js/export.js"></script>
+    <script src="../lib/qunit/qunit.js"></script>
+
+    <script type="text/javascript">
+
+        var fixture = $('#qunit-fixture');
+
+        QUnit.module('switchCheckbox()');
+
+        QUnit.test('Should check checkbox if it is unchecked', function(assert) {
+            var cb = $('<input type="checkbox"/>');
+            $(fixture).append(cb);
+
+            switchCheckbox(cb);
+
+            assert.equal($(cb).is(':checked'), true);
+        });
+
+        QUnit.test('Should uncheck checkbox if it is checked', function(assert) {
+            var cb = $('<input type="checkbox" checked/>');
+            $(fixture).append(cb);
+
+            switchCheckbox(cb);
+
+            assert.equal($(cb).is(':checked'), false);
+        });
+
+        QUnit.test('Checking and unchecking should work in a chain', function(assert) {
+            var cb = $('<input type="checkbox"/>');
+            $(fixture).append(cb);
+
+            assert.equal($(cb).is(':checked'), false);
+
+            switchCheckbox(cb);
+
+            assert.equal($(cb).is(':checked'), true);
+
+            switchCheckbox(cb);
+
+            assert.equal($(cb).is(':checked'), false);
+        });
+
+        QUnit.module('getTaskCheckbox()');
+
+        QUnit.test('Should return task checkbox', function(assert) {
+            var cb = $('<input type="checkbox" id="cb1"/>');
+            var li = $('<li/>');
+            $(li).append(cb);
+            $(fixture).append(li);
+
+            var checkbox = getTaskCheckbox(li);
+
+            assert.equal(checkbox.id, 'cb1');
+        });
+
+        QUnit.test('Should return undefined if task has no checkbox', function(assert) {
+            var li = $('<li/>');
+            $(fixture).append(li);
+
+            var checkbox = getTaskCheckbox(li);
+
+            assert.equal(checkbox, undefined);
+        });
+
+        QUnit.test('Should return first checkbox from multiple task checkboxes', function(assert) {
+            var li = $('<li/>');
+            var cb1 = $('<input type="checkbox" id="cb1"/>');
+            var cb2 = $('<input type="checkbox" id="cb2"/>');
+            $(li).append(cb1);
+            $(li).append(cb2);
+            $(fixture).append(li);
+
+            var checkbox = getTaskCheckbox(li);
+
+            assert.equal(checkbox.id, 'cb1');
+        });
+
+        QUnit.module('toggleTaskCheckboxState()');
+
+        QUnit.test('Should switch checkbox of task', function(assert) {
+            var li = $('<li/>');
+            var cb = $('<input type="checkbox"/>');
+            $(li).append(cb);
+            $(fixture).append(li);
+
+            toggleTaskCheckboxState(li);
+
+            assert.equal($(cb).is(':checked'), true);
+
+            toggleTaskCheckboxState(li);
+
+            assert.equal($(cb).is(':checked'), false);
+
+            toggleTaskCheckboxState(li);
+
+            assert.equal($(cb).is(':checked'), true);
+        });
+
+        QUnit.test('Should not switch checkbox if li has class "invs"', function(assert) {
+            var li = $('<li class="invs"/>');
+            var cb = $('<input type="checkbox"/>');
+            $(li).append(cb);
+            $(fixture).append(li);
+
+            toggleTaskCheckboxState(li);
+
+            assert.equal($(cb).is(':checked'), false);
+        });
+
+        QUnit.module('getCalendarId()');
+
+        QUnit.test('Should return correct checkbox id', function(assert) {
+            var calendarCbx = $('<checkbox id="cb0"/>');
+            $(fixture).append(calendarCbx);
+
+            var calendarId = getCalendarId(calendarCbx);
+
+            assert.equal(calendarId, 'cb0');
+        });
+
+        QUnit.test('Should return undefined if checkbox doesn\'t have id', function(assert) {
+            var calendarCbx = $('<checkbox/>');
+            $(fixture).append(calendarCbx);
+
+            var calendarId = getCalendarId(calendarCbx);
+
+            assert.equal(calendarId, undefined);
+        });
+
+        QUnit.module('getCbxsByCalendarId()');
+
+        QUnit.test('Should return all checboxes belonging to calendar with passed id', function(assert) {
+            var tasks1 = $('<div class="tasks"/>');
+            var tasks2 = $('<div class="tasks"/>');
+            var cb_cal1_1 = $('<input type="checkbox" data-calendar="cal1" id="cb1"/>');
+            var cb_cal1_2 = $('<input type="checkbox" data-calendar="cal1" id="cb2"/>');
+            var cb_cal2_1 = $('<input type="checkbox" data-calendar="cal2" id="cb3"/>');
+            var cb_cal2_2 = $('<input type="checkbox" data-calendar="cal2" id="cb4"/>');
+            $(tasks1).append(cb_cal1_1);
+            $(tasks1).append(cb_cal2_1);
+            $(tasks2).append(cb_cal1_2);
+            $(tasks2).append(cb_cal2_2);
+            $(fixture).append(tasks1);
+            $(fixture).append(tasks2);
+
+            var cbxs = getCbxsByCalendarId('cal1');
+
+            assert.equal(cbxs.length, 2);
+            assert.equal(cbxs[0].id, 'cb1');
+            assert.equal(cbxs[1].id, 'cb2');
+        });
+
+        QUnit.test('Should return empty object if there are no checkboxes with passed calendar id', function(assert) {
+            var tasks1 = $('<div class="tasks"/>');
+            var tasks2 = $('<div class="tasks"/>');
+            var cb_cal1_1 = $('<input type="checkbox" data-calendar="cal1" id="cb1"/>');
+            var cb_cal1_2 = $('<input type="checkbox" data-calendar="cal1" id="cb2"/>');
+            var cb_cal2_1 = $('<input type="checkbox" data-calendar="cal2" id="cb3"/>');
+            var cb_cal2_2 = $('<input type="checkbox" data-calendar="cal2" id="cb4"/>');
+            $(tasks1).append(cb_cal1_1);
+            $(tasks1).append(cb_cal2_1);
+            $(tasks2).append(cb_cal1_2);
+            $(tasks2).append(cb_cal2_2);
+            $(fixture).append(tasks1);
+            $(fixture).append(tasks2);
+
+            var cbxs = getCbxsByCalendarId('cal3');
+
+            assert.equal(cbxs.length, 0);
+        });
+
+        QUnit.module('toggleCalendarTaskStatuses()');
+
+        QUnit.test('Should enable all tasks of calendar if calendar status is enabled', function(assert) {
+            var calendarCheckbox = $('<input type="checkbox" id="cal1" checked/>');
+            var tasks = $('<div class="tasks"/>');
+            var cb1 = $('<input type="checkbox" data-calendar="cal1"/>');
+            var cb2 = $('<input type="checkbox" data-calendar="cal1" checked/>');
+            var cb3 = $('<input type="checkbox" data-calendar="cal2"/>');
+            var cb4 = $('<input type="checkbox" data-calendar="cal2" checked/>');
+            $(tasks).append(calendarCheckbox);
+            $(tasks).append(cb1);
+            $(tasks).append(cb2);
+            $(tasks).append(cb3);
+            $(tasks).append(cb4);
+            $(fixture).append(tasks);
+
+            assert.equal($(calendarCheckbox).is(':checked'), true);
+            assert.equal($(cb1).is(':checked'), false);
+            assert.equal($(cb2).is(':checked'), true);
+            assert.equal($(cb3).is(':checked'), false);
+            assert.equal($(cb4).is(':checked'), true);
+
+            toggleCalendarTaskStatuses(calendarCheckbox);
+
+            assert.equal($(calendarCheckbox).is(':checked'), true);
+            assert.equal($(cb1).is(':checked'), true);
+            assert.equal($(cb2).is(':checked'), true);
+            assert.equal($(cb3).is(':checked'), false);
+            assert.equal($(cb4).is(':checked'), true);
+        });
+
+        QUnit.test('Should disable all tasks of calendar if calendar status is disabled', function(assert) {
+            var calendarCheckbox = $('<input type="checkbox" id="cal1"/>');
+            var tasks = $('<div class="tasks"/>');
+            var cb1 = $('<input type="checkbox" data-calendar="cal1"/>');
+            var cb2 = $('<input type="checkbox" data-calendar="cal1" checked/>');
+            var cb3 = $('<input type="checkbox" data-calendar="cal2"/>');
+            var cb4 = $('<input type="checkbox" data-calendar="cal2" checked/>');
+            $(tasks).append(calendarCheckbox);
+            $(tasks).append(cb1);
+            $(tasks).append(cb2);
+            $(tasks).append(cb3);
+            $(tasks).append(cb4);
+            $(fixture).append(tasks);
+
+            assert.equal($(calendarCheckbox).is(':checked'), false);
+            assert.equal($(cb1).is(':checked'), false);
+            assert.equal($(cb2).is(':checked'), true);
+            assert.equal($(cb3).is(':checked'), false);
+            assert.equal($(cb4).is(':checked'), true);
+
+            toggleCalendarTaskStatuses(calendarCheckbox);
+
+            assert.equal($(calendarCheckbox).is(':checked'), false);
+            assert.equal($(cb1).is(':checked'), false);
+            assert.equal($(cb2).is(':checked'), false);
+            assert.equal($(cb3).is(':checked'), false);
+            assert.equal($(cb4).is(':checked'), true);
+        });
+
+    </script>
+</body>
+</html>

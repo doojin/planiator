@@ -1,14 +1,100 @@
 $global-margin-lr: 5%;
 $global-margin-tb: 2%;
 
-$export-bg: rgba(0, 0, 0, 0.55);
+$export-bg: rgba(0, 0, 0, 0.6);
 $export-color: #FFFFFF;
+
+$day-bg: rgba(0, 0, 0, 0.5);
+$day-border-color: rgba(0, 0, 0, 0.7);
+$task-list-li-bg: rgba(255, 255, 255, 0.6);
+$task-list-li-hover-bg: rgba(255, 255, 255, 0.72);
 
 .export-content {
 
     margin: $global-margin-tb $global-margin-lr;
-    padding: 2%;
+    padding: 2% 0;
     background-color: $export-bg;
     color: $export-color;
 
+    .row {
+
+        #from, #to {
+            display: inline;
+            width: 50%;
+            margin-left: 15px;
+        }
+
+        &.calendars {
+            margin-top: 8px;
+
+            .calendar-list {
+                display: inline-block;
+                margin-left: 15px;
+
+                .calendar {
+                    @include calendar-label;
+                    margin: 5px;
+                }
+            }
+        }
+
+        &.tasks {
+            margin-top: 25px;
+
+            .day {
+                padding: 6px 15px;
+                background-color: $day-bg;
+                border: solid 1px $day-border-color;
+            }
+
+            .task-list {
+                margin-bottom: 1px;
+
+                li {
+                    height: 108px;
+                    background-color: $task-list-li-bg;
+                    color: black;
+                    font-size: 14px;
+
+                    &:hover {
+                        background-color: $task-list-li-hover-bg;
+                        cursor: pointer;
+                    }
+
+                    &.invs:hover {
+                        background-color: $task-list-li-bg !important;
+                        cursor: default;
+                    }
+                }
+            }
+
+            .checkbox, .title {
+                display: inline-block;
+                height: 25px;
+                line-height: 25px;
+                font-weight: bold;
+                vertical-align: top;
+            }
+
+            .checkbox {
+                width: 10%;
+            }
+
+            .title {
+                width: 85%;
+                overflow: hidden;
+            }
+
+            .header {
+                margin-top: 10px;
+            }
+
+            .desc {
+                height: 55px;
+                color: #333333;
+                font-size: 12px;
+                overflow: hidden;
+            }
+        }
+    }
 }

@@ -16,6 +16,18 @@
     @include round(5px);
 }
 
+@mixin calendar-label {
+    @include label($padding: 0, $radius:true);
+    height: 25px;
+    padding: 0 5px;
+    line-height: 30px;
+    color: #FFFFFF;
+
+    label {
+        color: #FFFFFF;
+    }
+}
+
 @mixin pn-button($bg:$primary-color) {
     @include button($bg:$bg, $padding:0.5rem);
     background-color: transparentize($bg, 0.3);

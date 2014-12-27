@@ -48,8 +48,12 @@ module.exports = function(grunt) {
                     {flatten: true, expand: true, src: 'lib/foundation/js/foundation.min.js', dest: 'assets/vendor/foundation/js'},
                     {flatten: true, expand: true, src: 'lib/foundation/js/foundation/foundation.topbar.js', dest: 'assets/vendor/foundation/js'},
                     {flatten: true, expand: true, src: 'lib/foundation/js/foundation.min.js', dest: 'assets/vendor/foundation/js'},
-                    // jQuery
-                    {flatten: true, expand: true, src: 'lib/jquery/jquery.js', dest: 'assets/vendor/jquery'}
+                    // jQuery & jQuery UI
+                    {flatten: true, expand: true, src: 'lib/jquery/jquery.js', dest: 'assets/vendor/jquery'},
+                    {flatten: true, expand: true, src: 'lib/jquery-ui/jquery-ui.min.js', dest: 'assets/vendor/jquery'},
+                    {flatten: true, expand: true, src: 'lib/jquery-ui/ui/minified/datepicker.min.js', dest: 'assets/vendor/jquery'},
+                    {flatten: true, expand: true, src: 'lib/jquery-ui/themes/ui-darkness/images/*', dest: 'assets/vendor/jquery/images'},
+                    {flatten: true, expand: true, src: 'lib/jquery-ui/themes/ui-darkness/jquery-ui.min.css', dest: 'assets/vendor/jquery'}
                 ]
             }
         },
