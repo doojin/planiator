@@ -99,6 +99,8 @@ $task-list-li-hover-bg: rgba(255, 255, 255, 0.72);
             .title {
                 width: 85%;
                 overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
             }
 
             .header {

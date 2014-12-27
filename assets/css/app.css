@@ -18063,7 +18063,9 @@ h4 {
       width: 10%; }
     .export-content .row.tasks .title {
       width: 85%;
-      overflow: hidden; }
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
     .export-content .row.tasks .header {
       margin-top: 10px; }
     .export-content .row.tasks .desc {
