@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Planiator</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/app.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/vendor/jquery/jquery-ui.min.css"/>
+</head>
+<body>
+    <div class="export-content">
+        <div class="row">
+            <div class="small-16 columns">
+                <div class="green pn-button">Import Selected Tasks</div>
+            </div>
+        </div>
+        <div class="calendars row">
+            <div class="small-16 columns">
+                Calendars to import:
+                <div class="calendar-list">
+                    <div class="calendar" style="background-color: #404040;">
+                        <input type="checkbox" id="c0" checked/>
+                        <span>Default</span>
+                    </div>
+                    <div class="calendar" style="background-color: #204B85;">
+                        <input type="checkbox" id="c1" checked/>
+                        <span>Family</span>
+                    </div>
+                    <div class="calendar" style="background-color: #591B5C;">
+                        <input type="checkbox" id="c2" checked/>
+                        <span>Friends</span>
+                    </div>
+                    <div class="calendar" style="background-color: #691E00;">
+                        <input type="checkbox" id="c3" checked/>
+                        <span>University</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tasks row">
+            <div class="small-16 columns">
+                <div class="small-block-grid-1">
+                    <div class="day">
+                        Friday, December 1, 2014
+                        <input type="checkbox" class="select-unselect" checked/>
+                    </div>
+                </div>
+                <ul class="task-list small-block-grid-5">
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" data-calendar="c1" checked/>
+                            </div>
+                            <div class="title">
+                                Very long title Very long title Very long title
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Task description
+                        </div>
+                    </li>
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" data-calendar="c1" checked/>
+                            </div>
+                            <div class="title">
+                                Do my homework
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description
+                        </div>
+                    </li>
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Prepare for test
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Go for a walk with dog
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Task description Task description
+                        </div>
+                    </li>
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Finish course work
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Task description
+                        </div>
+                    </li>
+                </ul>
+                <ul class="task-list small-block-grid-5">
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Make hirecut
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Do nothing
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Task description
+                        </div>
+                    </li>
+                    <li class="invs"></li>
+                    <li class="invs"></li>
+                    <li class="invs"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="tasks row">
+            <div class="small-16 columns">
+                <div class="small-block-grid-1">
+                    <div class="day">
+                        Friday, December 1, 2014
+                        <input type="checkbox" class="select-unselect" checked/>
+                    </div>
+                </div>
+                <ul class="task-list small-block-grid-5">
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Visit my grandma
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Task description
+                        </div>
+                    </li>
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Do my homework
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description
+                        </div>
+                    </li>
+                    <li class="invs"></li>
+                    <li class="invs"></li>
+                    <li class="invs"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="tasks row">
+            <div class="small-16 columns">
+                <div class="small-block-grid-1">
+                    <div class="day">
+                        Friday, December 1, 2014
+                        <input type="checkbox" class="select-unselect" checked/>
+                    </div>
+                </div>
+                <ul class="task-list small-block-grid-5">
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Visit my grandma
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Task description
+                        </div>
+                    </li>
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Do my homework
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description Task description
+                        </div>
+                    </li>
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Prepare for test
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Go for a walk with dog
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Task description Task description
+                        </div>
+                    </li>
+                    <li class="invs"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="tasks row">
+            <div class="small-16 columns">
+                <div class="small-block-grid-1">
+                    <div class="day">
+                        Friday, December 1, 2014
+                        <input type="checkbox" class="select-unselect" checked/>
+                    </div>
+                </div>
+                <ul class="task-list small-block-grid-5">
+                    <li>
+                        <div class="header">
+                            <div class="checkbox">
+                                <input type="checkbox" checked/>
+                            </div>
+                            <div class="title">
+                                Visit my grandma
+                            </div>
+                        </div>
+                        <div class="desc">
+                            Task description
+                        </div>
+                    </li>
+                    <li class="invs"></li>
+                    <li class="invs"></li>
+                    <li class="invs"></li>
+                    <li class="invs"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="/assets/vendor/jquery/jquery-ui.min.js"></script>
+    <script src="/assets/vendor/blockui/jquery.blockUI.min.js"></script>
+    <script src="/assets/vendor/jquery/datepicker.js"></script>
+    <script src="/assets/js/export-import.js"></script>
+    <script src="/assets/vendor/foundation/js/foundation.min.js"></script>
+    <script>
+        $(document).foundation();
+    </script>
+</body>
+</html>
