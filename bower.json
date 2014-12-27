@@ -23,7 +23,8 @@
     "foundation": "latest",
     "jt.timepicker": "latest",
     "foundation-icon-fonts": "latest",
-    "jquery-ui": "latest"
+    "jquery-ui": "latest",
+    "blockui": "latest"
   },
   "devDependencies": {
     "qunit": "~1.15.0"

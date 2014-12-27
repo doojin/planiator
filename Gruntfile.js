@@ -53,7 +53,9 @@ module.exports = function(grunt) {
                     {flatten: true, expand: true, src: 'lib/jquery-ui/jquery-ui.min.js', dest: 'assets/vendor/jquery'},
                     {flatten: true, expand: true, src: 'lib/jquery-ui/ui/minified/datepicker.min.js', dest: 'assets/vendor/jquery'},
                     {flatten: true, expand: true, src: 'lib/jquery-ui/themes/ui-darkness/images/*', dest: 'assets/vendor/jquery/images'},
-                    {flatten: true, expand: true, src: 'lib/jquery-ui/themes/ui-darkness/jquery-ui.min.css', dest: 'assets/vendor/jquery'}
+                    {flatten: true, expand: true, src: 'lib/jquery-ui/themes/ui-darkness/jquery-ui.min.css', dest: 'assets/vendor/jquery'},
+                    // BlockUI
+                    {flatten: true, expand: true, src: 'lib/blockui/*', dest: 'assets/vendor/blockui'}
                 ]
             }
         },
@@ -81,7 +83,8 @@ module.exports = function(grunt) {
                 files: {
                     'assets/vendor/foundation/js/foundation.topbar.min.js': ['assets/vendor/foundation/js/foundation.topbar.js'],
                     'assets/vendor/jquery/jquery.min.js': ['assets/vendor/jquery/jquery.js'],
-                    'assets/vendor/timepicker/jquery.timepicker.min.js': ['assets/vendor/timepicker/jquery.timepicker.js']
+                    'assets/vendor/timepicker/jquery.timepicker.min.js': ['assets/vendor/timepicker/jquery.timepicker.js'],
+                    'assets/vendor/blockui/jquery.blockUI.min.js': ['assets/vendor/blockui/jquery.blockUI.js']
                 }
             },
         },

@@ -19,6 +19,8 @@ var datepickerConfig = {
 $(document).ready(function() {
     $(INPUT_DATE_FROM).datepicker(datepickerConfig);
     $(INPUT_DATE_TO).datepicker(datepickerConfig);
+    $(INPUT_DATE_FROM).on('change', getTasks);
+    $(INPUT_DATE_TO).on('change', getTasks);
 
     $(TASK_LI).on('click', function(e) {
         if (e.target == getFirstCheckbox(this)) { return; }
@@ -103,4 +105,12 @@ function getDayBlock(checkbox) {
 // Returns all checkboxes which belong to day block
 function getDayCheckboxes(dayBlock) {
     return $(dayBlock).find('.task-list input[type="checkbox"]');
+}
+
+// Locks screen while getting tasks
+function getTasks() {
+    $.blockUI();
+    setTimeout(function() {
+        $.unblockUI();
+    }, 1200);
 }
