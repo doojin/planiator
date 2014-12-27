@@ -294,6 +294,169 @@
             assert.equal($(cb2).is(':checked'), false);
         });
 
+        QUnit.module('getDayBlock()');
+
+        QUnit.test('Should return day block if it is parent of element', function(assert) {
+            var block = $('<div class="tasks row" id="dayBlock"/>');
+            var child = $('<div/>');
+            $(block).append(child);
+            $(fixture).append(block);
+
+            var dayBlock = getDayBlock(child);
+
+            assert.equal($(dayBlock).attr('id'), 'dayBlock');
+        });
+
+        QUnit.test('Should return undefined if block has no class "tasks"', function(assert) {
+            var block = $('<div class="row" id="dayBlock"/>');
+            var child = $('<div/>');
+            $(block).append(child);
+            $(fixture).append(block);
+
+            var dayBlock = getDayBlock(child);
+
+            assert.equal(dayBlock.attr('id'), undefined);
+        });
+
+        QUnit.test('Should return undefined if block has no class "row"', function(assert) {
+            var block = $('<div class="tasks" id="dayBlock"/>');
+            var child = $('<div/>');
+            $(block).append(child);
+            $(fixture).append(block);
+
+            var dayBlock = getDayBlock(child);
+
+            assert.equal(dayBlock.attr('id'), undefined);
+        });
+
+        QUnit.test('Should return day block if it is parent of parent of element', function(assert) {
+            var block = $('<div class="tasks row" id="dayBlock"/>');
+            var childBlock = $('<div class="tasks" id="childBlock"/>');
+            var child = $('<div/>');
+            $(childBlock).append(child);
+            $(block).append(childBlock);
+            $(fixture).append(block);
+
+            var dayBlock = getDayBlock(child);
+
+            assert.equal($(dayBlock).attr('id'), 'dayBlock');
+        });
+
+        QUnit.module('getDayCheckboxes()');
+
+        QUnit.test('Should return all day checkboxes', function(assert) {
+            var dayBlock = $('<div/>');
+            var taskList = $('<div class="task-list"/>');
+            var cb1 = $('<input type="checkbox" id="cb1"/>');
+            var cb2 = $('<input type="checkbox" id="cb2"/>');
+            var cb3 = $('<input type="checkbox" id="cb3"/>');
+            $(taskList).append(cb1);
+            $(taskList).append(cb2);
+            $(taskList).append(cb3);
+            $(dayBlock).append(taskList);
+            $(fixture).append(dayBlock);
+
+            var checkboxes = getDayCheckboxes(dayBlock);
+
+            assert.equal(checkboxes.length, 3);
+            assert.equal($(checkboxes[0]).attr('id'), 'cb1');
+            assert.equal($(checkboxes[1]).attr('id'), 'cb2');
+            assert.equal($(checkboxes[2]).attr('id'), 'cb3');
+        });
+
+        QUnit.test('Should return empty list of checkobxes if task-list doesn\'t exist', function(assert) {
+            var dayBlock = $('<div/>');
+            var cb1 = $('<input type="checkbox" id="cb1"/>');
+            var cb2 = $('<input type="checkbox" id="cb2"/>');
+            var cb3 = $('<input type="checkbox" id="cb3"/>');
+            $(dayBlock).append(cb1);
+            $(dayBlock).append(cb2);
+            $(dayBlock).append(cb3);
+            $(fixture).append(dayBlock);
+
+            var checkboxes = getDayCheckboxes(dayBlock);
+
+            assert.equal(checkboxes.length, 0);
+        });
+
+        QUnit.module('selectUnselectDay()');
+
+        QUnit.test('Should check all checkboxes which belong to day if passed checkbox is checked', function(assert) {
+            var dayBlock1 = $('<div class="tasks row"/>');
+            var dayCb1 = $('<input type="checkbox" checked/>');
+            var taskList1 = $('<div class="task-list"/>');
+            var taskList2 = $('<div class="task-list"/>');
+            var cb1 = $('<input type="checkbox" checked/>');
+            var cb2 = $('<input type="checkbox"/>');
+            var cb3 = $('<input type="checkbox" checked/>');
+            var cb4 = $('<input type="checkbox"/>');
+            $(taskList1).append(cb1);
+            $(taskList1).append(cb2);
+            $(taskList2).append(cb3);
+            $(taskList2).append(cb4);
+            $(dayBlock1).append(taskList1);
+            $(dayBlock1).append(taskList2);
+            $(dayBlock1).append(dayCb1);
+
+            assert.equal($(cb1).is(':checked'), true);
+            assert.equal($(cb2).is(':checked'), false);
+            assert.equal($(cb3).is(':checked'), true);
+            assert.equal($(cb4).is(':checked'), false);
+
+            selectUnselectDay(dayCb1);
+
+            assert.equal($(cb1).is(':checked'), true);
+            assert.equal($(cb2).is(':checked'), true);
+            assert.equal($(cb3).is(':checked'), true);
+            assert.equal($(cb4).is(':checked'), true);
+        });
+
+        QUnit.test('Should uncheck all checkboxes which belong to day if passed checkbox is unchecked', function(assert) {
+            var dayBlock1 = $('<div class="tasks row"/>');
+            var dayCb1 = $('<input type="checkbox"/>');
+            var taskList1 = $('<div class="task-list"/>');
+            var taskList2 = $('<div class="task-list"/>');
+            var cb1 = $('<input type="checkbox" checked/>');
+            var cb2 = $('<input type="checkbox"/>');
+            var cb3 = $('<input type="checkbox" checked/>');
+            var cb4 = $('<input type="checkbox"/>');
+            $(taskList1).append(cb1);
+            $(taskList1).append(cb2);
+            $(taskList2).append(cb3);
+            $(taskList2).append(cb4);
+            $(dayBlock1).append(taskList1);
+            $(dayBlock1).append(taskList2);
+            $(dayBlock1).append(dayCb1);
+
+            assert.equal($(cb1).is(':checked'), true);
+            assert.equal($(cb2).is(':checked'), false);
+            assert.equal($(cb3).is(':checked'), true);
+            assert.equal($(cb4).is(':checked'), false);
+
+            selectUnselectDay(dayCb1);
+
+            assert.equal($(cb1).is(':checked'), false);
+            assert.equal($(cb2).is(':checked'), false);
+            assert.equal($(cb3).is(':checked'), false);
+            assert.equal($(cb4).is(':checked'), false);
+        });
+
+        QUnit.test('Should change checkbox status if it belongs to another day block', function(assert) {
+            var dayBlock1 = $('<div class="tasks row"/>');
+            var dayBlock2 = $('<div class="tasks row"/>');
+            var dayCb = $('<input type="checkbox"/>');
+            var taskList = $('<div class="task-list"/>');
+            var cb = $('<input type="checkbox" checked/>');
+            $(taskList).append(cb);
+            $(dayBlock1).append(dayCb);
+            $(dayBlock2).append(taskList);
+
+            assert.equal($(cb).is(':checked'), true);
+
+            selectUnselectDay(dayCb);
+
+            assert.equal($(cb).is(':checked'), true);
+        });
     </script>
 </body>
 </html>

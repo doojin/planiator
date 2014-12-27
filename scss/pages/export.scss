@@ -50,6 +50,10 @@ $task-list-li-hover-bg: rgba(255, 255, 255, 0.72);
                 padding: 6px 15px;
                 background-color: $day-bg;
                 border: solid 1px $day-border-color;
+
+                .select-unselect {
+                    float: right;
+                }
             }
 
             .task-list {

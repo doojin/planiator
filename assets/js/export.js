@@ -9,6 +9,8 @@ var TASK_LI = '.task-list li';
 var CALENDAR_LABELS = '.calendar-list .calendar';
 var CALENDAR_CBXS = '.calendars input[type=checkbox]';
 
+var SELECT_UNSELECT_DAY_CHECKBOX = '.select-unselect';
+
 var datepickerConfig = {
     dateFormat: DATEPICKER_DATE_FORMAT,
     firstDay: DAY_MONDAY
@@ -30,6 +32,10 @@ $(document).ready(function() {
 
     $(CALENDAR_CBXS).on('change', function() {
         toggleCalendarTaskStatuses(this);
+    });
+
+    $(SELECT_UNSELECT_DAY_CHECKBOX).on('change', function() {
+        selectUnselectDay(this);
     });
 });
 
@@ -59,9 +65,9 @@ function toggleCalendarCheckboxState(div) {
 function toggleCalendarTaskStatuses(calendarCbx) {
     var id = getCalendarId(calendarCbx);
     var cbxs = getCbxsByCalendarId(id);
-    $(cbxs).each(function(id) {
+    $(cbxs).each(function(key) {
         if ($(this).is(':checked') != $(calendarCbx).is(':checked')) {
-            switchCheckbox(cbxs[id]);
+            switchCheckbox(cbxs[key]);
         }
     });
 }
@@ -76,4 +82,25 @@ function getCbxsByCalendarId(id) {
     var tasks = $('.tasks');
     var checkboxes = $(tasks).find('input[type="checkbox"][data-calendar="' + id + '"]');
     return checkboxes;
+}
+
+// Selects or unselects all days which belongs to day
+function selectUnselectDay(checkbox) {
+    var dayBlock = getDayBlock(checkbox);
+    var dayCheckboxes = getDayCheckboxes(dayBlock);
+    $(dayCheckboxes).each(function(key) {
+        if ($(this).is(':checked') != $(checkbox).is(':checked')) {
+            switchCheckbox(dayCheckboxes[key]);
+        }
+    });
+}
+
+// Returns parent day block
+function getDayBlock(checkbox) {
+    return $(checkbox).closest('.tasks.row');
+}
+
+// Returns all checkboxes which belong to day block
+function getDayCheckboxes(dayBlock) {
+    return $(dayBlock).find('.task-list input[type="checkbox"]');
 }
