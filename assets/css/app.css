@@ -17988,21 +17988,21 @@ h4 {
 #add-new {
   display: none; }
 
-.export-content {
+.export-import-content {
   margin: 2% 5%;
   padding: 2% 0;
   background-color: rgba(0, 0, 0, 0.6);
   color: #FFFFFF; }
-  .export-content .row #from, .export-content .row #to {
+  .export-import-content .row #from, .export-import-content .row #to {
     display: inline;
     width: 60%;
     margin-left: 15px; }
-  .export-content .row.calendars {
+  .export-import-content .row.calendars {
     margin-top: 8px; }
-    .export-content .row.calendars .calendar-list {
+    .export-import-content .row.calendars .calendar-list {
       display: inline-block;
       margin-left: 15px; }
-      .export-content .row.calendars .calendar-list .calendar {
+      .export-import-content .row.calendars .calendar-list .calendar {
         font-weight: normal;
         font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
         text-align: center;
@@ -18024,52 +18024,52 @@ h4 {
         color: #FFFFFF;
         margin: 5px;
         cursor: pointer; }
-        .export-content .row.calendars .calendar-list .calendar span {
+        .export-import-content .row.calendars .calendar-list .calendar span {
           padding: 0 5px 0 2px; }
-        .export-content .row.calendars .calendar-list .calendar input {
+        .export-import-content .row.calendars .calendar-list .calendar input {
           cursor: pointer; }
-  .export-content .row.tasks {
+  .export-import-content .row.tasks {
     margin-top: 25px; }
-    .export-content .row.tasks .day {
+    .export-import-content .row.tasks .day {
       padding: 6px 15px;
       background-color: rgba(0, 0, 0, 0.5);
       border: solid 1px rgba(0, 0, 0, 0.7); }
-      .export-content .row.tasks .day .select-unselect {
+      .export-import-content .row.tasks .day .select-unselect {
         float: right; }
-    .export-content .row.tasks .task-list {
+    .export-import-content .row.tasks .task-list {
       margin-bottom: 1px; }
-      .export-content .row.tasks .task-list li {
+      .export-import-content .row.tasks .task-list li {
         height: 108px;
         background-color: rgba(255, 255, 255, 0.6);
         color: black;
         font-size: 14px;
         cursor: pointer; }
-        .export-content .row.tasks .task-list li input {
+        .export-import-content .row.tasks .task-list li input {
           cursor: pointer; }
-        .export-content .row.tasks .task-list li.invs {
+        .export-import-content .row.tasks .task-list li.invs {
           cursor: default; }
-          .export-content .row.tasks .task-list li.invs input {
+          .export-import-content .row.tasks .task-list li.invs input {
             cursor: default; }
-        .export-content .row.tasks .task-list li:hover {
+        .export-import-content .row.tasks .task-list li:hover {
           background-color: rgba(255, 255, 255, 0.72); }
-        .export-content .row.tasks .task-list li.invs:hover {
+        .export-import-content .row.tasks .task-list li.invs:hover {
           background-color: rgba(255, 255, 255, 0.6) !important; }
-    .export-content .row.tasks .checkbox, .export-content .row.tasks .title {
+    .export-import-content .row.tasks .checkbox, .export-import-content .row.tasks .title {
       display: inline-block;
       height: 25px;
       line-height: 25px;
       font-weight: bold;
       vertical-align: top; }
-    .export-content .row.tasks .checkbox {
+    .export-import-content .row.tasks .checkbox {
       width: 10%; }
-    .export-content .row.tasks .title {
+    .export-import-content .row.tasks .title {
       width: 85%;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap; }
-    .export-content .row.tasks .header {
+    .export-import-content .row.tasks .header {
       margin-top: 10px; }
-    .export-content .row.tasks .desc {
+    .export-import-content .row.tasks .desc {
       height: 55px;
       color: #333333;
       font-size: 12px;
