@@ -7,6 +7,45 @@
     <link rel="stylesheet" type="text/css" href="/assets/vendor/jquery/jquery-ui.min.css"/>
 </head>
 <body>
+    <nav class="top-bar" role="navigation" data-topbar>
+        <ul class="title-area">
+            <li class="name"></li>
+            <!-- Menu icon -->
+            <li class="toggle-topbar menu-icon">
+                <a href="#">
+                    <span></span>
+                </a>
+            </li>
+        </ul>
+        <section class="top-bar-section">
+            <ul class="left">
+                <li class="has-dropdown">
+                    <a href="#">Filter Calendars</a>
+                    <ul class="dropdown">
+                        <li><a href="#">All Calendars</a></li>
+                        <li><a href="#">Tasks</a></li>
+                        <li><a href="#">Mettings</a></li>
+                        <li><a href="#">My Calendar</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="right">
+                <li>
+                    <a id="share-button">Share Calendar</a>
+                </li>
+                <li>
+                    <a id="import-button">Import Tasks</a>
+                </li>
+                <li>
+                    <a href="#">Export Tasks</a>
+                </li>
+                <li>
+                    <a href="#">Log Off</a>
+                </li>
+            </ul>
+        </section>
+    </nav>
+    
     <div class="export-content">
         <div class="row">
             <div class="small-16 columns">
@@ -271,11 +310,36 @@
             </div>
         </div>
     </div>
+    
+    <div id="share-popup" class="reveal-modal small" data-reveal>
+        <div class="row">
+            <div class="small-16 columns">
+                Your calendar is shared now:
+            </div>
+            <div class="small-16 columns">
+                <input type="text" value="http://planiator.tk/c/274927391203">
+            </div>
+        </div>
+    </div>
+    
+    <div id="import-popup" class="reveal-modal small" data-reveal>
+        <div class="row">
+            <div class="small-16 columns">
+                <input type="file" class="pn-button">
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-16 columns text-center">
+                <div class="green pn-button">Import From File</div>
+            </div>
+        </div>
+    </div>
 
     <script src="/assets/vendor/jquery/jquery.min.js"></script>
     <script src="/assets/vendor/jquery/jquery-ui.min.js"></script>
     <script src="/assets/vendor/blockui/jquery.blockUI.min.js"></script>
     <script src="/assets/vendor/jquery/datepicker.js"></script>
+    <script src="/assets/js/topbar.js"></script>
     <script src="/assets/js/export-import.js"></script>
     <script src="/assets/vendor/foundation/js/foundation.min.js"></script>
     <script>

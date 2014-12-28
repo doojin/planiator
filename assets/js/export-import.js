@@ -17,6 +17,8 @@ var datepickerConfig = {
 };
 
 $(document).ready(function() {
+    initTopbar();
+    
     $(INPUT_DATE_FROM).datepicker(datepickerConfig);
     $(INPUT_DATE_TO).datepicker(datepickerConfig);
     $(INPUT_DATE_FROM).on('change', getTasks);
