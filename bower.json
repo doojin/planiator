@@ -15,9 +15,9 @@
     "tests"
   ],
   "exportsOverride": {
-    "foundation": {"/": "/"},
-    "foundation-icon-fonts": {"/": "/"},
-    "jquery-ui": {"/": "/"}
+    "foundation": {"./": "./"},
+    "foundation-icon-fonts": {"./": "./"},
+    "jquery-ui": {"./": "./"}
   },
   "dependencies": {
     "foundation": "latest",
