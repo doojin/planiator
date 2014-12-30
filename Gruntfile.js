@@ -86,7 +86,7 @@ module.exports = function(grunt) {
                     'assets/vendor/timepicker/jquery.timepicker.min.js': ['assets/vendor/timepicker/jquery.timepicker.js'],
                     'assets/vendor/blockui/jquery.blockUI.min.js': ['assets/vendor/blockui/jquery.blockUI.js']
                 }
-            },
+            }
         },
 
         // grunt-contrib-cssmin
