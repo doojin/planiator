@@ -17814,6 +17814,9 @@ h4 {
   margin-top: -42px;
   right: 5px; }
 
+.reveal-modal, dialog {
+  padding-top: 55px; }
+
 .homepage-content .main {
   padding: 15% 0; }
   .homepage-content .main form label {
@@ -18033,6 +18036,9 @@ h4 {
   display: none; }
 
 .export-import-content {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
   margin: 2% 5%;
   padding: 2% 0;
   background-color: rgba(0, 0, 0, 0.6);
