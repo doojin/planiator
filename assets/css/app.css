@@ -17723,6 +17723,9 @@ h4 {
     color: #FFFFFF; }
   .pn-button:hover {
     background-color: #008CBA; }
+  .pn-button.small {
+    padding: 3px 6px;
+    font-size: 0.9rem; }
   .pn-button.green {
     border-style: solid;
     border-width: 0;
@@ -17755,6 +17758,9 @@ h4 {
       color: #FFFFFF; }
     .pn-button.green:hover {
       background-color: #46B34F; }
+    .pn-button.green.small {
+      padding: 3px 6px;
+      font-size: 0.9rem; }
   .pn-button.red {
     border-style: solid;
     border-width: 0;
@@ -17787,6 +17793,9 @@ h4 {
       color: #FFFFFF; }
     .pn-button.red:hover {
       background-color: #B34646; }
+    .pn-button.red.small {
+      padding: 3px 6px;
+      font-size: 0.9rem; }
 
 .content {
   margin: 0 auto; }
@@ -17796,6 +17805,14 @@ h4 {
   @media only screen and (min-width: 40.063em) {
     .content {
       width: 65%; } }
+
+.evo-more {
+  display: none; }
+
+.evo-pointer {
+  position: absolute;
+  margin-top: -42px;
+  right: 5px; }
 
 .homepage-content .main {
   padding: 15% 0; }

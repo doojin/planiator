@@ -36,6 +36,11 @@
         background-color: $bg;
     }
     @include round(3px);
+    
+    &.small {
+        padding: 3px 6px;
+        font-size: 0.9rem;
+    }
 }
 
 %noMarginRow {

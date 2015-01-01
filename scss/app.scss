@@ -50,6 +50,16 @@ body {
     margin: 0 auto;
 }
 
+.evo-more {
+    display: none;
+}
+
+.evo-pointer {
+    position: absolute;
+    margin-top: -42px;
+    right: 5px;
+}
+
 @import "pages/index";
 @import "pages/calendar";
 @import "pages/export-import";

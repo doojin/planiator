@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Topbar.js</title>
+    <link rel="stylesheet" href="/lib/qunit/qunit.css"/>
+
+    <style>
+        #day-popup {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    
+    <script src="../assets/vendor/jquery/jquery.js"></script>
+    <script src="../assets/js/topbar.js"></script>
+    <script src="../lib/qunit/qunit.js"></script>
+
+    <script type="text/javascript">
+        /* global QUnit, getCalendarHeader, setCalendarHeaderColor, updateCalendarHeader, updateColorPickers */
+        /* global encode, updateCalendarHeaderText */
+
+        var fixture = $('#qunit-fixture');
+        
+        QUnit.module('getCalendarHeader()');
+        
+        QUnit.test('Should get calendar header by element', function(assert) {
+            var input = $('<input data-calendar="dummyCalendar"/>');
+            var a = $('<a data-calendar="dummyCalendar" id="dummyLink"/>');
+            $(fixture).append(input);
+            $(fixture).append(a);
+            
+            var actual = getCalendarHeader(input);
+            
+            assert.equal($(actual).attr('id'), 'dummyLink');
+        });
+        
+        QUnit.test('Should return nothing if header is not a link', function(assert) {
+            var input = $('<input data-calendar="dummyCalendar"/>');
+            var div = $('<div data-calendar="dummyCalendar" id="dummyLink"/>');
+            $(fixture).append(input);
+            $(fixture).append(div);
+            
+            var actual = getCalendarHeader(input);
+            
+            assert.equal($(actual).length, 0);
+        });
+        
+        QUnit.test('Should return nothing if there is no calendar header', function(assert) {
+            var input = $('<input data-calendar="dummyCalendar"/>');
+            $(fixture).append(input);
+            
+            var actual = getCalendarHeader(input);
+            
+            assert.equal($(actual).length, 0);
+        });
+        
+        QUnit.module('setCalendarHeaderColor()');
+        
+        QUnit.test('Should change background color of header', function(assert) {
+            var element = $('<div/>');
+            $(fixture).append(element);
+            
+            assert.equal($(element).css('background-color'), 'rgba(0, 0, 0, 0)');
+            
+            setCalendarHeaderColor(element, '#FFFFFF');
+            
+            assert.equal($(element).css('background-color'), 'rgb(255, 255, 255)');
+        });
+        
+        QUnit.module('updateCalendarHeader()');
+        
+        QUnit.test('Should update styles of calendar header', function(assert) {
+            var input = $('<input data-calendar="dummyCalendar"/>');
+            var a = $('<a data-calendar="dummyCalendar"/>');
+            $(fixture).append(input);
+            $(fixture).append(a);
+            
+            updateCalendarHeader(input, '#FFFFFF');
+            
+            assert.equal($(a).css('background-color'), 'rgb(255, 255, 255)');
+        });
+        
+        QUnit.module('updateColorPickers()');
+        
+        QUnit.test('Should disable all color pickers', function(assert) {
+            var cp1 = $('<input class="color-picker"/>');
+            var cp2 = $('<input class="color-picker"/>');
+            $(fixture).append(cp1);
+            $(fixture).append(cp2);
+            
+            assert.equal($(cp1).attr('disabled'), undefined);
+            assert.equal($(cp2).attr('disabled'), undefined);
+            
+            updateColorPickers();
+            
+            assert.equal($(cp1).attr('disabled'), 'disabled');
+            assert.equal($(cp2).attr('disabled'), 'disabled');
+        });
+        
+        QUnit.test('Should change wrapper\'s width to 100%', function(assert) {
+            var cp1 = $('<input class="color-picker"/>');
+            var cp2 = $('<input class="color-picker"/>');
+            var wrapper1 = $('<div style="width: 200px;"/>');
+            var wrapper2 = $('<div style="width: 300px;"/>');
+            var parent = $('<div style="width: 800px;"/>');
+            $(wrapper1).append(cp1);
+            $(wrapper2).append(cp2);
+            $(parent).append(wrapper1);
+            $(parent).append(wrapper2);
+            $(fixture).append(parent);
+            
+            assert.equal($(wrapper1).css('width'), '200px');
+            assert.equal($(wrapper2).css('width'), '300px');
+            
+            updateColorPickers();
+            
+            assert.equal($(wrapper1).css('width'), '800px');
+            assert.equal($(wrapper2).css('width'), '800px');
+        });
+        
+        QUnit.module('encode');
+        
+        QUnit.test('Should escape all html symbols', function(assert) {
+            var str = '<br/>';
+            
+            var output = encode(str);
+            
+            assert.equal(output, '&lt;br/&gt;');
+        });
+        
+        QUnit.test('Should trim a string', function(assert) {
+            var str = '     <br/>     ';
+            
+            var output = encode(str);
+            
+            assert.equal(output, '&lt;br/&gt;');
+        });
+        
+        QUnit.module('updateCalendarHeaderText()');
+        
+        QUnit.test('Should update the text of calendar header', function(assert) {
+            var input = $('<input data-calendar="dummyCalendar"/>');
+            var header = $('<a data-calendar="dummyCalendar">Dummy Header</a>');
+            $(fixture).append(input);
+            $(fixture).append(header);
+            
+            assert.equal($(header).html(), 'Dummy Header');
+            
+            $(input).val('Another Dummy Header');
+            updateCalendarHeaderText(input);
+            
+            assert.equal($(header).html(), 'Another Dummy Header');
+        });
+        
+        QUnit.test('Should set default text to calendar header if input\'s value is empty', function(assert) {
+            var input = $('<input data-calendar="dummyCalendar"/>');
+            var header = $('<a data-calendar="dummyCalendar">Dummy Header</a>');
+            $(fixture).append(input);
+            $(fixture).append(header);
+            
+            assert.equal($(header).html(), 'Dummy Header');
+            
+            $(input).val('    ');
+            updateCalendarHeaderText(input);
+            
+            assert.equal($(header).html(), 'Untitled Calendar');
+        });
+
+    </script>
+</body>
+</html>
