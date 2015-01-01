@@ -5,6 +5,7 @@
     <title>Planiator</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/app.min.css"/>
     <link rel="stylesheet" type="text/css" href="/assets/vendor/jquery/jquery-ui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/vendor/colorpicker/evol.colorpicker.min.css"/>
 </head>
 <body>
     <nav class="top-bar" role="navigation" data-topbar>
@@ -27,6 +28,9 @@
                         <li><a href="#">Mettings</a></li>
                         <li><a href="#">My Calendar</a></li>
                     </ul>
+                </li>
+                <li>
+                    <a id="my-calendars-button">My Calendars</a>
                 </li>
             </ul>
             <ul class="right">
@@ -335,11 +339,72 @@
             </div>
         </div>
     </div>
+    
+    <div id="my-calendars-popup" class="reveal-modal small" data-reveal>
+        <dl class="accordion" data-accordion>
+            <dd class="accordion-navigation">
+                <a href="#c0" data-calendar="c0" style="background-color: #195C2B;">Family</a>
+                <div id="c0" class="content">
+                    <div class="row settings">
+                        <div class="small-10 columns">
+                            <div class="row collapse">
+                                <div class="small-5 columns">
+                                    <span class="prefix">Name:</span>
+                                </div>
+                                <div class="small-11 columns">
+                                    <input type="text" data-calendar="c0" class="calendar-name" value="Family"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="small-6 text-right columns">
+                            <input type="text" data-calendar="c0" class="color-picker" value="#92cddc" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-16 text-center">
+                            <div class="red small pn-button">Delete Calendar</div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#c1" data-calendar="c1" class="header" style="background-color: #5c2a4b;">University</a>
+                <div id="c1" class="content">
+                    <div class="row settings">
+                        <div class="small-10 columns">
+                            <div class="row collapse">
+                                <div class="small-5 columns">
+                                    <span class="prefix">Name:</span>
+                                </div>
+                                <div class="small-11 columns">
+                                    <input type="text" data-calendar="c1" class="calendar-name" value="Family"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="small-6 text-right columns">
+                            <input type="text" data-calendar="c1" class="color-picker" value="#92cddc" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="small-16 text-center">
+                            <div class="red small pn-button">Delete Calendar</div>
+                        </div>
+                    </div>
+                </div>
+            </dd>
+        </dl>
+
+        <div class="row save-calendar-changes">
+            <div class="small-16 columns text-center">
+                <div class="green pn-button">Save Changes</div>
+            </div>
+        </div>
+    </div>
 
     <script src="/assets/vendor/jquery/jquery.min.js"></script>
     <script src="/assets/vendor/jquery/jquery-ui.min.js"></script>
     <script src="/assets/vendor/blockui/jquery.blockUI.min.js"></script>
     <script src="/assets/vendor/jquery/datepicker.js"></script>
+    <script src="/assets/vendor/colorpicker/evol.colorpicker.min.js"></script>
     <script src="/assets/js/topbar.js"></script>
     <script src="/assets/js/export-import.js"></script>
     <script src="/assets/vendor/foundation/js/foundation.min.js"></script>
