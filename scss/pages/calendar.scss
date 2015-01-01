@@ -146,15 +146,6 @@ $task-label-bg: rgba(0, 0, 0, 0.4);
     .accordion {
         .accordion-navigation {
 
-            a {
-                color: #FFFFFF;
-                background-color: $task-label-bg !important;
-
-                &.done {
-                    text-decoration: line-through;
-                }
-            }
-
             .content {
                 width: 100%;
                 margin: 0;
@@ -212,15 +203,64 @@ $task-label-bg: rgba(0, 0, 0, 0.4);
             a {
                 @include round(4px);
                 margin-top: 7px;
-                background-color: $taskBg;
+                color: #FFFFFF;
+                background-color: $task-label-bg !important;
                 border: solid 1px $taskBorder;
                 text-align: center;
                 font-size: 12px;
                 padding: 5px;
+
+                &.done {
+                    text-decoration: line-through;
+                }
             }
         }
     }
     .add-new-record-button { margin-top: 25px; }
+}
+
+#my-calendars-popup {
+
+    $calendarBorder: rgba(0, 0, 0, 0.2);
+
+    .accordion {
+        .accordion-navigation {
+
+            .content {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+
+                .row {
+                    @extend %noMarginRow;
+                    width: 100%;
+                    max-width: 100%;
+
+                    &.settings {
+                        margin-top: 15px;
+                    }
+                }
+            }
+
+            a {
+                @include round(4px);
+                margin-top: 7px;
+                color: #FFFFFF;
+                border: solid 1px $calendarBorder;
+                text-align: center;
+                font-size: 12px;
+                padding: 5px;
+
+                &.done {
+                    text-decoration: line-through;
+                }
+            }
+        }
+    }
+
+    .save-calendar-changes {
+        margin-top: 15px;
+    }
 }
 
 #add-new {

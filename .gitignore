@@ -6,3 +6,4 @@ assets/vendor/
 credentials.js
 *.log
 *.map
+codeStyleSettings.xml

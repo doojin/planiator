@@ -55,7 +55,20 @@ module.exports = function(grunt) {
                     {flatten: true, expand: true, src: 'lib/jquery-ui/themes/ui-darkness/images/*', dest: 'assets/vendor/jquery/images'},
                     {flatten: true, expand: true, src: 'lib/jquery-ui/themes/ui-darkness/jquery-ui.min.css', dest: 'assets/vendor/jquery'},
                     // BlockUI
-                    {flatten: true, expand: true, src: 'lib/blockui/*', dest: 'assets/vendor/blockui'}
+                    {flatten: true, expand: true, src: 'lib/blockui/*', dest: 'assets/vendor/blockui'},
+                    // ColorPicker
+                    {
+                        flatten: true,
+                        expand: true,
+                        src: 'node_modules/evol.colorpicker/css/evol.colorpicker.min.css',
+                        dest: 'assets/vendor/colorpicker'
+                    },
+                    {
+                        flatten: true,
+                        expand: true,
+                        src: 'node_modules/evol.colorpicker/js/evol.colorpicker.min.js',
+                        dest: 'assets/vendor/colorpicker'
+                    }
                 ]
             }
         },
