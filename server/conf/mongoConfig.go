@@ -1,16 +1,16 @@
 package conf
 
 // MongoDB server host
-const MongoHost = "host-com"
+const MongoHost = "ds029811.mongolab.com"
 
 // MongoDB server port
-const MongoPort = "port-number"
+const MongoPort = "29811"
 
 // MongoDB database name
-const MongoDatabase = "database-name"
+const MongoDatabase = "planiator"
 
 // MongoDB username for authorization
-const MongoUser = "mongo-user"
+const MongoUser = "planiator-user"
 
 // MongoDB password for authorization
-const MongoPassword = "mongo-password"
+const MongoPassword = "planiator-password"
