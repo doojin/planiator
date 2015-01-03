@@ -4,6 +4,7 @@ import (
 	"html/template"
 	"net/http"
 	"planiator/server/form"
+	"planiator/server/model"
 
 	"github.com/op/go-logging"
 )
@@ -73,7 +74,8 @@ func handleSignUpAction(w http.ResponseWriter, r *http.Request) {
 		data["SignUpPassword"] = signUpForm.Password
 		data["SignUpPasswordAgain"] = signUpForm.PasswordAgain
 	} else {
-
+		newUser := model.NewUserModel(signUpForm.Email, signUpForm.Password)
+		model.DefaultUserRepository.AddUser(newUser)
 	}
 	tpl, err := template.ParseFiles("tpl/layout/homepage.tpl", "tpl/homepage.tpl")
 	if err != nil {

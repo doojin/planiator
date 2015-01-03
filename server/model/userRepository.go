@@ -7,6 +7,8 @@ import (
 	"gopkg.in/mgo.v2/bson"
 )
 
+var DefaultUserRepository = NewUserRepository()
+
 // UserRepositoryI contains method signatures to work with UserModel
 type UserRepositoryI interface {
 	EmailExists(email string) bool
@@ -27,4 +29,9 @@ func NewUserRepository() (repo UserRepository) {
 func (repo UserRepository) EmailExists(email string) bool {
 	userCount, _ := repo.c.Find(bson.M{"email": email}).Count()
 	return userCount > 0
+}
+
+// AddUser adds new user to database
+func (repo UserRepository) AddUser(user UserModel) {
+	repo.c.Insert(user)
 }
