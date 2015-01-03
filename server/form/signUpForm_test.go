@@ -175,7 +175,7 @@ func Test_addEmailError_ShouldAddEmailErrorCode(t *testing.T) {
 
 	assert.Equal(t, len(errCodes), 1)
 	assert.Equal(t, len(errCodes[EmailID]), 2)
-	assert.Equal(t, errCodes, map[int][]int{1: []int{1, 2}})
+	assert.Equal(t, errCodes, map[int][]int{0: []int{1, 2}})
 }
 
 // addPasswordError
@@ -188,7 +188,7 @@ func Test_addPasswordError_ShouldAddPasswordErrorCode(t *testing.T) {
 
 	assert.Equal(t, len(errCodes), 1)
 	assert.Equal(t, len(errCodes[PasswordID]), 2)
-	assert.Equal(t, errCodes, map[int][]int{2: []int{1, 2}})
+	assert.Equal(t, errCodes, map[int][]int{1: []int{1, 2}})
 }
 
 // addPasswordAgainError
@@ -201,7 +201,7 @@ func Test_addPasswordAgainError_ShouldAddPasswordAgainErrorCode(t *testing.T) {
 
 	assert.Equal(t, len(errCodes), 1)
 	assert.Equal(t, len(errCodes[PasswordAgainID]), 2)
-	assert.Equal(t, errCodes, map[int][]int{3: []int{1, 2}})
+	assert.Equal(t, errCodes, map[int][]int{2: []int{1, 2}})
 }
 
 // Validate
@@ -212,7 +212,7 @@ func Test_Validate_ShouldReturnOnlyEmptyFieldErrorCodesIfFieldsAreEmpty(t *testi
 	result, errCodes := form.Validate()
 
 	assert.Equal(t, false, result)
-	assert.Equal(t, map[int][]int{1: []int{100}, 2: []int{200}, 3: []int{300}}, errCodes)
+	assert.Equal(t, map[int][]int{0: []int{0}, 1: []int{4}, 2: []int{6}}, errCodes)
 }
 
 func Test_Validate_ShouldAddErrorsCorrectlyWhenFieldsAreNotEmpty(t *testing.T) {
@@ -227,5 +227,5 @@ func Test_Validate_ShouldAddErrorsCorrectlyWhenFieldsAreNotEmpty(t *testing.T) {
 	result, errCodes := form.Validate()
 
 	assert.Equal(t, false, result)
-	assert.Equal(t, map[int][]int{1: []int{101, 102, 103}, 2: []int{201}, 3: []int{301}}, errCodes)
+	assert.Equal(t, map[int][]int{0: []int{1, 2, 3}, 1: []int{5}, 2: []int{7}}, errCodes)
 }

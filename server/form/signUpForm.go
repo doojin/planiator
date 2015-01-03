@@ -16,23 +16,23 @@ type SignUpForm struct {
 
 // Field ids
 const (
-	EmailID         = 1
-	PasswordID      = 2
-	PasswordAgainID = 3
+	EmailID = iota
+	PasswordID
+	PasswordAgainID
 )
 
 // Error codes
 const (
-	ErrSignUpEmailEmpty   = 100
-	ErrSignUpEmailRegexp  = 101
-	ErrSignUpEmailTooLong = 102
-	ErrSignUpEmailExists  = 103
+	ErrSignUpEmailEmpty = iota
+	ErrSignUpEmailRegexp
+	ErrSignUpEmailTooLong
+	ErrSignUpEmailExists
 
-	ErrSignUpPasswordEmpty  = 200
-	ErrSignUpPasswordLength = 201
+	ErrSignUpPasswordEmpty
+	ErrSignUpPasswordLength
 
-	ErrSignUpPasswordAgainEmpty = 300
-	ErrSignUpPasswordsDontMatch = 301
+	ErrSignUpPasswordAgainEmpty
+	ErrSignUpPasswordsDontMatch
 )
 
 // Email
@@ -59,7 +59,7 @@ func NewSignUpForm(email string, password string, passwordAgain string) (form Si
 
 // Validate valdates form data
 func (form SignUpForm) Validate() (result bool, errCodes map[int][]int) {
-	errCodes = map[int][]int{1: []int{}, 2: []int{}, 3: []int{}}
+	errCodes = map[int][]int{0: []int{}, 1: []int{}, 2: []int{}}
 	result = true
 
 	// Checking Email address
