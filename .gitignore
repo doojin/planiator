@@ -8,3 +8,4 @@ credentials.js
 *.map
 codeStyleSettings.xml
 server/conf/mongoConfig.go
+server/conf/secret.go
