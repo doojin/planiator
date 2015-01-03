@@ -7,3 +7,4 @@ credentials.js
 *.log
 *.map
 codeStyleSettings.xml
+server/conf/mongoConfig.go
