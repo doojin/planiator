@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/app.min.css"/>
 </head>
 <body>
-    {{template "content"}}
+    {{template "content" .}}
     {{template "scripts"}}
 </body>
 </html>

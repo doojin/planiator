@@ -1,6 +1,7 @@
 package form
 
 import (
+	"planiator/server/messages"
 	"planiator/server/model"
 	"regexp"
 )
@@ -16,23 +17,23 @@ type SignUpForm struct {
 
 // Field ids
 const (
-	EmailID = iota
-	PasswordID
-	PasswordAgainID
+	SignUpFormEmailID = iota
+	SignUpFormPasswordID
+	SignUpFormPasswordAgainID
 )
 
 // Error codes
 const (
-	ErrSignUpEmailEmpty = iota
-	ErrSignUpEmailRegexp
-	ErrSignUpEmailTooLong
-	ErrSignUpEmailExists
+	ErrSignUpEmailEmpty   = "ErrSignUpEmailEmpty"
+	ErrSignUpEmailRegexp  = "ErrSignUpEmailRegexp"
+	ErrSignUpEmailTooLong = "ErrSignUpEmailTooLong"
+	ErrSignUpEmailExists  = "ErrSignUpEmailExists"
 
-	ErrSignUpPasswordEmpty
-	ErrSignUpPasswordLength
+	ErrSignUpPasswordEmpty  = "ErrSignUpPasswordEmpty"
+	ErrSignUpPasswordLength = "ErrSignUpPasswordLength"
 
-	ErrSignUpPasswordAgainEmpty
-	ErrSignUpPasswordsDontMatch
+	ErrSignUpPasswordAgainEmpty = "ErrSignUpPasswordAgainEmpty"
+	ErrSignUpPasswordsDontMatch = "ErrSignUpPasswordsDontMatch"
 )
 
 // Email
@@ -53,13 +54,24 @@ func NewSignUpForm(email string, password string, passwordAgain string) (form Si
 	form.Password = password
 	form.PasswordAgain = passwordAgain
 
-	form.userRepo = model.UserRepository{}
+	form.userRepo = model.NewUserRepository()
 	return
 }
 
+// GetFieldErrMessages returns a list of readable error messages
+func (form SignUpForm) GetFieldErrMessages(fieldID int) []string {
+	_, errCodes := form.Validate()
+	errMap := messages.Messages["sign up form"]
+	errMessages := []string{}
+	for _, errCode := range errCodes[fieldID] {
+		errMessages = append(errMessages, errMap[errCode])
+	}
+	return errMessages
+}
+
 // Validate valdates form data
-func (form SignUpForm) Validate() (result bool, errCodes map[int][]int) {
-	errCodes = map[int][]int{0: []int{}, 1: []int{}, 2: []int{}}
+func (form SignUpForm) Validate() (result bool, errCodes map[int][]string) {
+	errCodes = map[int][]string{0: []string{}, 1: []string{}, 2: []string{}}
 	result = true
 
 	// Checking Email address
@@ -140,14 +152,14 @@ func (form SignUpForm) passwordsMatch() bool {
 	return form.Password == form.PasswordAgain
 }
 
-func addEmailError(errCodes map[int][]int, code int) {
-	errCodes[EmailID] = append(errCodes[EmailID], code)
+func addEmailError(errCodes map[int][]string, code string) {
+	errCodes[SignUpFormEmailID] = append(errCodes[SignUpFormEmailID], code)
 }
 
-func addPasswordError(errCodes map[int][]int, code int) {
-	errCodes[PasswordID] = append(errCodes[PasswordID], code)
+func addPasswordError(errCodes map[int][]string, code string) {
+	errCodes[SignUpFormPasswordID] = append(errCodes[SignUpFormPasswordID], code)
 }
 
-func addPasswordAgainError(errCodes map[int][]int, code int) {
-	errCodes[PasswordAgainID] = append(errCodes[PasswordAgainID], code)
+func addPasswordAgainError(errCodes map[int][]string, code string) {
+	errCodes[SignUpFormPasswordAgainID] = append(errCodes[SignUpFormPasswordAgainID], code)
 }

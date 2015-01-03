@@ -1,0 +1,12 @@
+{
+    "sign up form": {
+        "ErrSignUpEmailEmpty": "Email field cannot be empty",
+        "ErrSignUpEmailRegexp": "Wrong Email format",
+        "ErrSignUpEmailTooLong": "Email is too long",
+        "ErrSignUpEmailExists": "User with this email alerady exists",
+        "ErrSignUpPasswordEmpty": "Password field cannot be empty",
+        "ErrSignUpPasswordLength": "Password must be 6-30 symbols long",
+        "ErrSignUpPasswordAgainEmpty": "Password Again field cannot be empty",
+        "ErrSignUpPasswordsDontMatch": "You passwords don't match"
+    }
+}

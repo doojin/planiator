@@ -64,6 +64,10 @@ body {
     padding-top: 55px;
 }
 
+small.error {
+    margin-top: -16px;
+}
+
 @import "pages/index";
 @import "pages/calendar";
 @import "pages/export-import";

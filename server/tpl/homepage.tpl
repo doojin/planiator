@@ -20,7 +20,7 @@
                             </div>
                             <div class="remember-me row">
                                 <div class="small-16 columns">
-                                    <input type="checkbox" id="remember-me-sign-in" id="remember-me-sign-in">
+                                    <input type="checkbox" id="remember-me-sign-in">
                                     <label for="remember-me-sign-in">Remember Me</label>
                                 </div>
                             </div>
@@ -32,27 +32,37 @@
                         </form>
                     </div>
                     <div class="small-16 medium-8 columns sign-up">
-                        <form>
+                        <form action="/" method="POST" id="sign-up-form">
+                            <input type="hidden" value="sign up" name="action"/>
                             <div class="row">
                                 <div class="small-16 columns">
                                     <label for="email-sign-up">Your E-mail:</label>
-                                    <input type="text" name="email" id="email-sign-up"/>
+                                    <input type="text" name="email" id="email-sign-up" value="{{.SignUpEmail}}"/>
+                                    {{range .EmailErrors}}
+                                        {{template "fieldError" .}}
+                                    {{end}}
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="small-16 columns">
                                     <label for="password-sign-up">Pick Up Password:</label>
-                                    <input type="password" name="password" id="password-sign-up"/>
+                                    <input type="password" name="password" id="password-sign-up" value="{{.SignUpPassword}}"/>
+                                    {{range .PasswordErrors}}
+                                        {{template "fieldError" .}}
+                                    {{end}}
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="small-16 columns">
                                     <label for="password-repeat-sign-up">Your Password Again:</label>
-                                    <input type="password" name="password-repeat" id="password-repeat-sign-up"/>
+                                    <input type="password" name="password-again" id="password-repeat-sign-up" value="{{.SignUpPasswordAgain}}"/>
+                                    {{range .PasswordAgainErrors}}
+                                        {{template "fieldError" .}}
+                                    {{end}}
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="pn-button">
+                                <div id="sign-up-button" class="pn-button">
                                     Sign Up
                                 </div>
                             </div>
@@ -63,7 +73,12 @@
         </div>
     </div>
 {{end}}
+
 {{define "scripts"}}
     <script src="/assets/vendor/jquery/jquery.min.js"></script>
     <script src="/assets/js/homepage.js"></script>
+{{end}}
+
+{{define "fieldError"}}
+<small class="error">{{.}}</small>
 {{end}}

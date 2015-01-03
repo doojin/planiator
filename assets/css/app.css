@@ -17818,6 +17818,9 @@ h4 {
 .reveal-modal, dialog {
   padding-top: 55px; }
 
+small.error {
+  margin-top: -16px; }
+
 .homepage-content .main {
   padding: 15% 0; }
   .homepage-content .main form label {

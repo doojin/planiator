@@ -3,6 +3,7 @@ package controller
 import (
 	"html/template"
 	"net/http"
+	"planiator/server/form"
 
 	"github.com/op/go-logging"
 )
@@ -57,11 +58,28 @@ func handleSignInAction(w http.ResponseWriter, r *http.Request) {
 
 // handleSignUpAction is user registration handler
 func handleSignUpAction(w http.ResponseWriter, r *http.Request) {
+
+	email, password, passwordAgain := r.FormValue("email"), r.FormValue("password"), r.FormValue("password-again")
+	signUpForm := form.NewSignUpForm(email, password, passwordAgain)
+
+	ok, _ := signUpForm.Validate()
+	data := map[string]interface{}{}
+
+	if !ok {
+		data["EmailErrors"] = signUpForm.GetFieldErrMessages(form.SignUpFormEmailID)
+		data["PasswordErrors"] = signUpForm.GetFieldErrMessages(form.SignUpFormPasswordID)
+		data["PasswordAgainErrors"] = signUpForm.GetFieldErrMessages(form.SignUpFormPasswordAgainID)
+		data["SignUpEmail"] = signUpForm.Email
+		data["SignUpPassword"] = signUpForm.Password
+		data["SignUpPasswordAgain"] = signUpForm.PasswordAgain
+	} else {
+
+	}
 	tpl, err := template.ParseFiles("tpl/layout/homepage.tpl", "tpl/homepage.tpl")
 	if err != nil {
 		logger.Warning("Error while parsing template: %s", err)
 	}
-	tpl.Execute(w, nil)
+	tpl.Execute(w, data)
 }
 
 // handleHomepageRedirectAction redirects user to homepage
