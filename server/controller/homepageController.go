@@ -1,10 +1,12 @@
 package controller
 
 import (
+	"fmt"
 	"html/template"
 	"net/http"
 	"planiator/server/form"
 	"planiator/server/model"
+	"planiator/server/session"
 
 	"github.com/op/go-logging"
 )
@@ -17,6 +19,7 @@ type HomepageController struct {
 
 // GetHomepage serves get request for homepage
 func (hpc HomepageController) GetHomepage(w http.ResponseWriter, r *http.Request) {
+	fmt.Println(session.Get(r).Values)
 	tpl, err := template.ParseFiles("tpl/layout/homepage.tpl", "tpl/homepage.tpl")
 	if err != nil {
 		logger.Warning("Error while parsing template: %s", err)
@@ -59,29 +62,36 @@ func handleSignInAction(w http.ResponseWriter, r *http.Request) {
 
 // handleSignUpAction is user registration handler
 func handleSignUpAction(w http.ResponseWriter, r *http.Request) {
+	sess := session.Get(r)
 
 	email, password, passwordAgain := r.FormValue("email"), r.FormValue("password"), r.FormValue("password-again")
 	signUpForm := form.NewSignUpForm(email, password, passwordAgain)
 
 	ok, _ := signUpForm.Validate()
-	data := map[string]interface{}{}
 
+	// Registration successfull
 	if !ok {
+		data := map[string]interface{}{}
 		data["EmailErrors"] = signUpForm.GetFieldErrMessages(form.SignUpFormEmailID)
 		data["PasswordErrors"] = signUpForm.GetFieldErrMessages(form.SignUpFormPasswordID)
 		data["PasswordAgainErrors"] = signUpForm.GetFieldErrMessages(form.SignUpFormPasswordAgainID)
 		data["SignUpEmail"] = signUpForm.Email
 		data["SignUpPassword"] = signUpForm.Password
 		data["SignUpPasswordAgain"] = signUpForm.PasswordAgain
+
+		tpl, err := template.ParseFiles("tpl/layout/homepage.tpl", "tpl/homepage.tpl")
+		if err != nil {
+			logger.Warning("Error while parsing template: %s", err)
+		}
+		tpl.Execute(w, data)
+
 	} else {
 		newUser := model.NewUserModel(signUpForm.Email, signUpForm.Password)
 		model.DefaultUserRepository.AddUser(newUser)
+		sess.Values["userId"] = newUser.ID
+		sess.Save(r, w)
+		http.Redirect(w, r, "/", 303)
 	}
-	tpl, err := template.ParseFiles("tpl/layout/homepage.tpl", "tpl/homepage.tpl")
-	if err != nil {
-		logger.Warning("Error while parsing template: %s", err)
-	}
-	tpl.Execute(w, data)
 }
 
 // handleHomepageRedirectAction redirects user to homepage
