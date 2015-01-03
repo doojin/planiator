@@ -2,9 +2,9 @@ package main
 
 import (
 	"net/http"
-	"planiator/server/conf"
-	"planiator/server/controller"
 
+	"github.com/doojin/planiator/server/conf"
+	"github.com/doojin/planiator/server/controller"
 	"github.com/gorilla/mux"
 	"github.com/op/go-logging"
 )
