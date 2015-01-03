@@ -2,9 +2,10 @@ package main
 
 import (
 	"net/http"
+	"planiator/server/conf"
+	"planiator/server/controller"
+	"planiator/server/model"
 
-	"github.com/doojin/planiator/server/conf"
-	"github.com/doojin/planiator/server/controller"
 	"github.com/gorilla/mux"
 	"github.com/op/go-logging"
 )
@@ -16,6 +17,9 @@ func init() {
 }
 
 func main() {
+	defer model.MongoSession.Close()
+	userRepo := model.NewUserRepository()
+	userRepo.EmailExists("aaa@aaa.aa")
 	logger := logging.MustGetLogger("Web Server")
 	r := mux.NewRouter()
 

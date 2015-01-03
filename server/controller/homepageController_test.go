@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-// getHomepageActionHandler ////////////////////////////////////////////////////
+// getHomepageActionHandler
 
 func Test_getHomepageActionHandler_ShouldReturnCorrectHandlerForSignInAction(t *testing.T) {
 	action := "sign in"
