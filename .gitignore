@@ -9,3 +9,4 @@ credentials.js
 codeStyleSettings.xml
 server/conf/mongoConfig.go
 server/conf/secret.go
+server/session/session_files/
