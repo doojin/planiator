@@ -1,12 +1,10 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 	"planiator/server/conf"
 	"planiator/server/controller"
 	"planiator/server/model"
-	"planiator/server/service"
 
 	"github.com/gorilla/mux"
 	"github.com/op/go-logging"
@@ -36,8 +34,6 @@ func main() {
 	http.Handle("/assets/", fileHandler)
 
 	logger.Info("Starting web server on port: %s", conf.Port)
-
-	fmt.Println(service.DefaultDateService.GetMonthDays(1))
 
 	http.Handle("/", r)
 	http.ListenAndServe(conf.ConnURL, nil)
