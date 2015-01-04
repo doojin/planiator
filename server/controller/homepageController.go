@@ -5,8 +5,10 @@ import (
 	"html/template"
 	"net/http"
 	"planiator/server/form"
+	"planiator/server/messages"
 	"planiator/server/model"
 	"planiator/server/service"
+	"planiator/server/session"
 
 	"github.com/op/go-logging"
 )
@@ -19,7 +21,8 @@ type HomepageController struct {
 
 // GetHomepage serves get request for homepage
 func (hpc HomepageController) GetHomepage(w http.ResponseWriter, r *http.Request) {
-	fmt.Println(service.GetDefaultAuthService().IsLoggedIn(r, w))
+	fmt.Println(service.DefaultAuthService.IsLoggedIn(r, w))
+	fmt.Println(session.Get(r).Values)
 	tpl, err := template.ParseFiles("tpl/layout/homepage.tpl", "tpl/homepage.tpl")
 	if err != nil {
 		logger.Warning("Error while parsing template: %s", err)
@@ -53,11 +56,24 @@ func getHomepageActionHandler(action string) func(w http.ResponseWriter, r *http
 
 // handleSignInAction is user authorization handler
 func handleSignInAction(w http.ResponseWriter, r *http.Request) {
-	tpl, err := template.ParseFiles("tpl/layout/homepage.tpl", "tpl/homepage.tpl")
-	if err != nil {
-		logger.Warning("Error while parsing template: %s", err)
+	email, password := r.FormValue("email"), r.FormValue("password")
+	signInForm := form.NewSignInForm(email, password)
+
+	if ok := signInForm.Validate(); ok {
+		user := model.DefaultUserRepository.FindByEmail(signInForm.Email)
+		service.DefaultAuthService.Login(user.ID, r, w)
+		http.Redirect(w, r, "/", 303)
+	} else {
+		tpl, err := template.ParseFiles("tpl/layout/homepage.tpl", "tpl/homepage.tpl")
+		if err != nil {
+			logger.Warning("Error while parsing template: %s", err)
+		}
+		tpl.Execute(w, map[string]interface{}{
+			"AuthFailed":     messages.Messages["sign in form"]["ErrSignInWrongEmailOrPassword"],
+			"SignInEmail":    signInForm.Email,
+			"SignInPassword": signInForm.Password,
+		})
 	}
-	tpl.Execute(w, nil)
 }
 
 // handleSignUpAction is user registration handler
@@ -82,7 +98,7 @@ func handleSignUpAction(w http.ResponseWriter, r *http.Request) {
 	} else {
 		newUser := model.NewUserModel(signUpForm.Email, signUpForm.Password)
 		model.DefaultUserRepository.AddUser(newUser)
-		service.GetDefaultAuthService().Login(newUser.ID, r, w)
+		service.DefaultAuthService.Login(newUser.ID, r, w)
 		http.Redirect(w, r, "/", 303)
 	}
 }

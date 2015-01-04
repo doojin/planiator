@@ -5,23 +5,20 @@
                 <div class="row">
                     <div class="small-16 medium-7 columns sign-in">
                         <form method="POST" action="/" id="sign-in-form">
-                            <input type="hidden" name="action" value="sign up"/>
+                            <input type="hidden" name="action" value="sign in"/>
                             <div class="row">
                                 <div class="small-16 columns">
                                     <label for="email-sign-in">Your E-mail Account:</label>
-                                    <input type="text" name="email" id="email-sign-in"/>
+                                    <input type="text" name="email" id="email-sign-in" value="{{.SignInEmail}}"/>
+                                    {{if .AuthFailed}}
+                                        {{template "fieldError" .AuthFailed}}
+                                    {{end}}
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="small-16 columns">
                                     <label for="password-sign-in">Your Password:</label>
-                                    <input type="password" name="password" id="password-sign-in"/>
-                                </div>
-                            </div>
-                            <div class="remember-me row">
-                                <div class="small-16 columns">
-                                    <input type="checkbox" id="remember-me-sign-in">
-                                    <label for="remember-me-sign-in">Remember Me</label>
+                                    <input type="password" name="password" id="password-sign-in" value="{{.SignInPassword}}"/>
                                 </div>
                             </div>
                             <div class="row">

@@ -54,7 +54,7 @@ func NewSignUpForm(email string, password string, passwordAgain string) (form Si
 	form.Password = password
 	form.PasswordAgain = passwordAgain
 
-	form.userRepo = model.NewUserRepository()
+	form.userRepo = model.DefaultUserRepository
 	return
 }
 

@@ -9,12 +9,8 @@ import (
 type AuthService struct {
 }
 
-var authService = new(AuthService)
-
-// GetDefaultAuthService returns default AuthService
-func GetDefaultAuthService() *AuthService {
-	return authService
-}
+// DefaultService is a default instancce of AuthService
+var DefaultAuthService = new(AuthService)
 
 // Login authorizes user in system
 func (service AuthService) Login(id int, r *http.Request, w http.ResponseWriter) {

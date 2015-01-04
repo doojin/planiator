@@ -4,17 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/mock"
 )
-
-type userRepositoryMock struct {
-	mock.Mock
-}
-
-func (m *userRepositoryMock) EmailExists(email string) bool {
-	args := m.Mock.Called(email)
-	return args.Bool(0)
-}
 
 // isEmailEmpty
 

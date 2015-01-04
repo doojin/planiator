@@ -8,5 +8,8 @@
         "ErrSignUpPasswordLength": "Password must be 6-30 symbols long",
         "ErrSignUpPasswordAgainEmpty": "Password Again field cannot be empty",
         "ErrSignUpPasswordsDontMatch": "You passwords don't match"
+    },
+    "sign in form": {
+        "ErrSignInWrongEmailOrPassword": "User with these email and password doesn't exist"
     }
 }
