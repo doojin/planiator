@@ -6,6 +6,9 @@ import (
 	"net/http"
 	"planiator/server/model"
 	"planiator/server/service"
+	"strconv"
+
+	"github.com/gorilla/mux"
 )
 
 // CalendarController stores methods for serving calendar requests
@@ -16,6 +19,13 @@ func (controller CalendarController) GetCalendarPage(w http.ResponseWriter, r *h
 	data := map[string]interface{}{}
 	userID := service.DefaultAuthService.GetUserID(r, w)
 	populateCalendarList(data, userID)
+
+	vars := mux.Vars(r)
+	monthOffset := 0
+	if vars["offset"] != "" {
+		monthOffset, _ = strconv.Atoi(vars["offset"])
+	}
+	populateDays(data, monthOffset)
 
 	tpl, err := template.ParseFiles(
 		"tpl/layout/default.tpl",

@@ -3,6 +3,7 @@ grunt deps
 grunt scss
 
 server/conf/mongoConfig.go:
+
     package conf
 
     // MongoDB server host
@@ -24,6 +25,7 @@ server/conf/mongoConfig.go:
     const MongoURL = "mongodb://" + MongoUser + ":" + MongoPassword + "@" + MongoHost + ":" + MongoPort + "/" + MongoDatabase
 
 server/conf/secret.go:
+
     package conf
 
     // Randomly generated strings for using with md5 hash function

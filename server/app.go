@@ -1,10 +1,12 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"planiator/server/conf"
 	"planiator/server/controller"
 	"planiator/server/model"
+	"planiator/server/service"
 
 	"github.com/gorilla/mux"
 	"github.com/op/go-logging"
@@ -16,8 +18,6 @@ var logoffController = controller.LogoffController{}
 
 func main() {
 	defer model.MongoSession.Close()
-	userRepo := model.NewUserRepository()
-	userRepo.EmailExists("aaa@aaa.aa")
 	logger := logging.MustGetLogger("Web Server")
 	r := mux.NewRouter()
 
@@ -25,6 +25,7 @@ func main() {
 	r.HandleFunc("/", homepageController.PostHomepage).Methods("POST")
 
 	r.HandleFunc("/calendar", calendarController.GetCalendarPage).Methods("GET")
+	r.HandleFunc("/calendar/m{offset}", calendarController.GetCalendarPage).Methods("GET")
 	r.HandleFunc("/new-calendar", calendarController.NewCalendarAction).Methods("POST")
 	r.HandleFunc("/save-calendars", calendarController.UpdateCalendarsAction).Methods("POST")
 
@@ -35,6 +36,8 @@ func main() {
 	http.Handle("/assets/", fileHandler)
 
 	logger.Info("Starting web server on port: %s", conf.Port)
+
+	fmt.Println(service.DefaultDateService.GetMonthDays(1))
 
 	http.Handle("/", r)
 	http.ListenAndServe(conf.ConnURL, nil)
