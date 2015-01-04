@@ -25,3 +25,10 @@ func (service AuthService) IsLoggedIn(r *http.Request, w http.ResponseWriter) bo
 	sess := session.Get(r)
 	return sess.Values["userId"] != nil
 }
+
+// LogOff loggs user off
+func (service AuthService) LogOff(r *http.Request, w http.ResponseWriter) {
+	sess := session.Get(r)
+	delete(sess.Values, "userId")
+	sess.Save(r, w)
+}

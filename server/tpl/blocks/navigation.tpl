@@ -35,7 +35,7 @@
                     <a href="#">Export Tasks</a>
                 </li>
                 <li>
-                    <a href="#">Log Off</a>
+                    <a href="/logoff">Log Off</a>
                 </li>
             </ul>
         </section>

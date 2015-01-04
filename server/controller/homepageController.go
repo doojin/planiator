@@ -1,14 +1,12 @@
 package controller
 
 import (
-	"fmt"
 	"html/template"
 	"net/http"
 	"planiator/server/form"
 	"planiator/server/messages"
 	"planiator/server/model"
 	"planiator/server/service"
-	"planiator/server/session"
 
 	"github.com/op/go-logging"
 )
@@ -21,8 +19,10 @@ type HomepageController struct {
 
 // GetHomepage serves get request for homepage
 func (hpc HomepageController) GetHomepage(w http.ResponseWriter, r *http.Request) {
-	fmt.Println(service.DefaultAuthService.IsLoggedIn(r, w))
-	fmt.Println(session.Get(r).Values)
+	if service.DefaultAuthService.IsLoggedIn(r, w) {
+		CalendarController{}.GetCalendarPage(w, r)
+		return
+	}
 	tpl, err := template.ParseFiles("tpl/layout/homepage.tpl", "tpl/homepage.tpl")
 	if err != nil {
 		logger.Warning("Error while parsing template: %s", err)
