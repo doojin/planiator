@@ -1,3 +1,5 @@
+npm install grunt-cli -g
+
 npm install
 grunt deps
 grunt scss
