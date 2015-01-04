@@ -32,7 +32,8 @@ func NewUserRepository() (repo UserRepository) {
 
 // EmailExists returns true if user with passed email exists in database
 func (repo UserRepository) EmailExists(email string) bool {
-	userCount, _ := repo.c.Find(bson.M{"email": email}).Count()
+	emailLowercase := strings.ToLower(email)
+	userCount, _ := repo.c.Find(bson.M{"email": emailLowercase}).Count()
 	return userCount > 0
 }
 
