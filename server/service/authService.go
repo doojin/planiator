@@ -32,3 +32,9 @@ func (service AuthService) LogOff(r *http.Request, w http.ResponseWriter) {
 	delete(sess.Values, "userId")
 	sess.Save(r, w)
 }
+
+// GetUserID returns id of actual user
+func (service AuthService) GetUserID(r *http.Request, w http.ResponseWriter) int {
+	sess := session.Get(r)
+	return sess.Values["userId"].(int)
+}

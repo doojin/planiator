@@ -8,9 +8,9 @@
 <body>
     {{template "navigation"}}
 
-    {{template "content" .}}
+    {{template "content"}}
 
-    {{template "popups"}}
+    {{template "popups" .}}
 
     {{template "scripts"}}
 </body>

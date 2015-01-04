@@ -25,6 +25,8 @@ func main() {
 	r.HandleFunc("/", homepageController.PostHomepage).Methods("POST")
 
 	r.HandleFunc("/calendar", calendarController.GetCalendarPage).Methods("GET")
+	r.HandleFunc("/new-calendar", calendarController.NewCalendarAction).Methods("POST")
+	r.HandleFunc("/save-calendars", calendarController.UpdateCalendarsAction).Methods("POST")
 
 	r.HandleFunc("/logoff", logoffController.LogoffAction).Methods("GET")
 
