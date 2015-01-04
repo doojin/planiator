@@ -10,11 +10,8 @@ import (
 	"github.com/op/go-logging"
 )
 
-var homepageController controller.HomepageController
-
-func init() {
-	homepageController = controller.HomepageController{}
-}
+var homepageController = controller.HomepageController{}
+var calendarController = controller.CalendarController{}
 
 func main() {
 	defer model.MongoSession.Close()
@@ -25,6 +22,8 @@ func main() {
 
 	r.HandleFunc("/", homepageController.GetHomepage).Methods("GET")
 	r.HandleFunc("/", homepageController.PostHomepage).Methods("POST")
+
+	r.HandleFunc("/calendar", calendarController.GetCalendarPage).Methods("GET")
 
 	// Serving static files
 	fileHandler := http.StripPrefix("/assets/", http.FileServer(http.Dir("../assets")))
