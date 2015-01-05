@@ -16,6 +16,23 @@ $task-label-bg: rgba(0, 0, 0, 0.4);
 
     margin: $global-margin-tb $global-margin-lr;
 
+    .calendar-navigation {
+        font-size: 1.6rem;
+
+        a {
+            margin: 0 10px;
+            color: #000000;
+            outline: none;
+        }
+
+        .month-year {
+            display: inline-block;
+            color: #FFFFFF;
+            font-weight: bold;
+            text-shadow: 1px 1px #000000;
+        }
+    }
+
     .calendar {
 
         $border-color: rgba(0, 0, 0, 0.3);

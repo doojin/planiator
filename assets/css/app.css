@@ -17858,6 +17858,17 @@ small.error {
 
 .calendar-content {
   margin: 2% 5%; }
+  .calendar-content .calendar-navigation {
+    font-size: 1.6rem; }
+    .calendar-content .calendar-navigation a {
+      margin: 0 10px;
+      color: #000000;
+      outline: none; }
+    .calendar-content .calendar-navigation .month-year {
+      display: inline-block;
+      color: #FFFFFF;
+      font-weight: bold;
+      text-shadow: 1px 1px #000000; }
   .calendar-content .calendar {
     background-color: rgba(0, 0, 0, 0.5);
     -webkit-border-radius: 5px;

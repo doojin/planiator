@@ -204,7 +204,7 @@ function getCalendarsFromRows(rows) {
         var row = rows[i];
         calendar.name = $(row).find('.calendar-name').val();
         calendar.color = $(row).find('.color-picker').val();
-        calendar.id = $(row).attr('id').slice(1);
+        calendar.id = parseInt($(row).attr('id').slice(1));
         list.push(calendar);
     });
     return list;
