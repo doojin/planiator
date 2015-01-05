@@ -8,7 +8,7 @@ var ADD_NEW_POPUP       = '#add-new-popup';
 var HOVER_CLASS         = '.hover';
 
 $(document).ready(function() {
-    
+
     initTopbar();
 
     $(DAY_LI).on('mouseenter', function() {
@@ -38,7 +38,9 @@ $(document).ready(function() {
 
 // Shows popup with information about daily tasks
 function showDayPopup() {
-    $(DAY_POPUP).foundation('reveal', 'open');
+    if ($(this).data('id')) {
+        $(DAY_POPUP).foundation('reveal', 'open');
+    }
 }
 
 // Shows popup with form for adding new task

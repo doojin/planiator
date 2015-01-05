@@ -147,7 +147,7 @@
 {{end}}
 
 {{define "day"}}
-    <li data-id=".Id">
+    <li data-id="{{.Id}}">
         <div class="day">{{.Day}}</div>
     </li>
 {{end}}
