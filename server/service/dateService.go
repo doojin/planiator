@@ -1,6 +1,7 @@
 package service
 
 import (
+	"math"
 	"strconv"
 	"time"
 )
@@ -26,12 +27,55 @@ func (service DateService) GetMonthDays(monthOffset int) []string {
 	date := now.AddDate(0, monthOffset, 0)
 	totalDays := time.Date(date.Year(), date.Month()+1, 0, 0, 0, 0, 0, time.UTC).Day()
 	for i := 1; i <= totalDays; i++ {
-		days = append(days, service.GetDayID(getDay(i), getMonth(date), getYear(date)))
+		days = append(days, service.GetDayID(service.getDay(i), service.getMonth(date), service.getYear(date)))
 	}
 	return days
 }
 
-func getDay(day int) string {
+// GetWeeks returns weeks of month
+func (service DateService) GetWeeks(monthOffset int) [][7]map[string]interface{} {
+	weeks := [][7]map[string]interface{}{}
+	days := service.GetMonthDays(monthOffset)
+	date := service.TimeProvider.now().AddDate(0, monthOffset, 0)
+	firstDay := time.Date(date.Year(), date.Month(), 1, 0, 0, 0, 0, time.UTC)
+	weekDay := service.dayOfWeek(firstDay)
+	totalDays := len(days) + weekDay
+	totalWeeks := int(math.Ceil(float64(totalDays) / 7.0))
+	current := 0
+	firstWeek := [7]map[string]interface{}{}
+	for i := weekDay; i <= 6; i++ {
+		firstWeek[i] = map[string]interface{}{"Id": days[current], "Day": current + 1}
+		current++
+	}
+	weeks = append(weeks, firstWeek)
+	for i := 1; i < totalWeeks; i++ {
+		week := [7]map[string]interface{}{}
+		for j := 0; j < 7; j++ {
+			if current < len(days) {
+				week[j] = map[string]interface{}{"Id": days[current], "Day": current + 1}
+				current++
+			}
+		}
+		weeks = append(weeks, week)
+	}
+	return weeks
+}
+
+// MonthName returns month name by it's offset
+func (service DateService) MonthName(offset int) string {
+	now := service.TimeProvider.now()
+	then := now.AddDate(0, offset, 0)
+	return then.Format("January")
+}
+
+// YearName returns year by month offset
+func (service DateService) YearName(offset int) string {
+	now := service.TimeProvider.now()
+	then := now.AddDate(0, offset, 0)
+	return then.Format("2006")
+}
+
+func (service DateService) getDay(day int) string {
 	result := strconv.Itoa(day)
 	if len(result) == 1 {
 		result = "0" + result
@@ -39,7 +83,7 @@ func getDay(day int) string {
 	return result
 }
 
-func getMonth(date time.Time) string {
+func (service DateService) getMonth(date time.Time) string {
 	month := strconv.Itoa(int(date.Month()))
 	if len(month) == 1 {
 		month = "0" + month
@@ -47,7 +91,16 @@ func getMonth(date time.Time) string {
 	return month
 }
 
-func getYear(date time.Time) string {
+func (service DateService) dayOfWeek(day time.Time) int {
+	weekDay := int(day.Weekday())
+	weekDay--
+	if weekDay == -1 {
+		weekDay = 6
+	}
+	return weekDay
+}
+
+func (service DateService) getYear(date time.Time) string {
 	return strconv.Itoa(date.Year())
 }
 

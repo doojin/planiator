@@ -25,9 +25,18 @@ func (controller CalendarController) GetCalendarPage(w http.ResponseWriter, r *h
 	if vars["offset"] != "" {
 		monthOffset, _ = strconv.Atoi(vars["offset"])
 	}
-	populateDays(data, monthOffset)
+	populateWeeks(data, monthOffset)
+	data["MonthName"] = service.DefaultDateService.MonthName(monthOffset)
+	data["YearName"] = service.DefaultDateService.YearName(monthOffset)
+	data["Offset"] = monthOffset
 
-	tpl, err := template.ParseFiles(
+	funcs := template.FuncMap{}
+	funcs["PrevOffset"] = func(offset int) int { return offset - 1 }
+	funcs["NextOffset"] = func(offset int) int { return offset + 1 }
+
+	tpl := template.New("default.tpl")
+	tpl.Funcs(funcs)
+	tpl, err := tpl.ParseFiles(
 		"tpl/layout/default.tpl",
 		"tpl/calendar.tpl",
 		"tpl/blocks/navigation.tpl",
@@ -39,6 +48,7 @@ func (controller CalendarController) GetCalendarPage(w http.ResponseWriter, r *h
 	if err != nil {
 		logger.Warning("Error while parsing template: %s", err)
 	}
+
 	tpl.Execute(w, data)
 }
 

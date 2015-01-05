@@ -8,7 +8,7 @@
 <body>
     {{template "navigation"}}
 
-    {{template "content"}}
+    {{template "content" .}}
 
     {{template "popups" .}}
 
