@@ -193,6 +193,7 @@ function saveCalendarList() {
         calendars: JSON.stringify(calendars)
     }, function() {
         $(MY_CALENDARS_POPUP).foundation('reveal', 'close');
+        location.reload();
     });
 }
 

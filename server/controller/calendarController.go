@@ -42,6 +42,7 @@ func (controller CalendarController) GetCalendarPage(w http.ResponseWriter, r *h
 		"tpl/blocks/navigation.tpl",
 		"tpl/blocks/popups/calendar.tpl",
 		"tpl/blocks/popups/myCalendarsPopup.tpl",
+		"tpl/blocks/popups/taskPopup.tpl",
 		"tpl/blocks/scripts/calendar.tpl",
 		"tpl/blocks/styles/calendar.tpl",
 	)

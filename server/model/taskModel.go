@@ -10,7 +10,7 @@ type TaskModel struct {
 	ID          int    `bson:"uid"`
 	CalendarID  int    `bson:"calendarId"`
 	Title       string `bson:"title"`
-	Date        int    `bson:"date"`
+	Date        string `bson:"date"`
 	From        string `bson:"from"`
 	To          string `bson:"to"`
 	Description string `bson:"desc"`
@@ -18,7 +18,7 @@ type TaskModel struct {
 }
 
 // NewTaskModel creates new instance of TaskModel
-func NewTaskModel(calendarID int, title string, date int, from string, to string, description string, isDone bool) (model TaskModel) {
+func NewTaskModel(calendarID int, title string, date string, from string, to string, description string, isDone bool) (model TaskModel) {
 	model.CalendarID = calendarID
 	model.Title = title
 	model.Date = date

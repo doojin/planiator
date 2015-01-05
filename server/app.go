@@ -13,6 +13,7 @@ import (
 var homepageController = controller.HomepageController{}
 var calendarController = controller.CalendarController{}
 var logoffController = controller.LogoffController{}
+var taskController = controller.TaskController{}
 
 func main() {
 	defer model.MongoSession.Close()
@@ -26,6 +27,8 @@ func main() {
 	r.HandleFunc("/calendar/m{offset}", calendarController.GetCalendarPage).Methods("GET")
 	r.HandleFunc("/new-calendar", calendarController.NewCalendarAction).Methods("POST")
 	r.HandleFunc("/save-calendars", calendarController.UpdateCalendarsAction).Methods("POST")
+
+	r.HandleFunc("/save-task", taskController.NewTaskAction).Methods("POST")
 
 	r.HandleFunc("/logoff", logoffController.LogoffAction).Methods("GET")
 

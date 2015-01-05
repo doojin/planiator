@@ -4915,7 +4915,7 @@ span.postfix, label.postfix {
   border-color: #cccccc; }
 
 /* We use this to get basic styling on all basic form elements */
-input[type='text'], input[type='password'] {
+input[type='text'], input[type='password'], textarea {
   -webkit-appearance: none;
   border-radius: 0;
   background-color: #FFFFFF;
@@ -4935,20 +4935,20 @@ input[type='text'], input[type='password'] {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   transition: box-shadow 0.45s, border-color 0.45s ease-in-out; }
-  input[type='text']:focus, input[type='password']:focus {
+  input[type='text']:focus, input[type='password']:focus, textarea:focus {
     box-shadow: 0 0 5px #999999;
     border-color: #999999; }
-  input[type='text']:focus, input[type='password']:focus {
+  input[type='text']:focus, input[type='password']:focus, textarea:focus {
     background: #fafafa;
     border-color: #999999;
     outline: none; }
-  input[type='text']:disabled, input[type='password']:disabled {
+  input[type='text']:disabled, input[type='password']:disabled, textarea:disabled {
     background-color: #DDDDDD;
     cursor: default; }
-  input[type='text'][disabled], input[type='text'][readonly], fieldset[disabled] input[type='text'], input[type='password'][disabled], input[type='password'][readonly], fieldset[disabled] input[type='password'] {
+  input[type='text'][disabled], input[type='text'][readonly], fieldset[disabled] input[type='text'], input[type='password'][disabled], input[type='password'][readonly], fieldset[disabled] input[type='password'], textarea[disabled], textarea[readonly], fieldset[disabled] textarea {
     background-color: #DDDDDD;
     cursor: default; }
-  input[type='text'].radius, input[type='password'].radius {
+  input[type='text'].radius, input[type='password'].radius, textarea.radius {
     border-radius: 3px; }
 
 form .row .prefix-radius.row.collapse input,
@@ -14801,7 +14801,7 @@ span.postfix, label.postfix {
   border-color: #cccccc; }
 
 /* We use this to get basic styling on all basic form elements */
-input[type='text'], input[type='password'] {
+input[type='text'], input[type='password'], textarea {
   -webkit-appearance: none;
   border-radius: 0;
   background-color: #FFFFFF;
@@ -14821,20 +14821,20 @@ input[type='text'], input[type='password'] {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   transition: box-shadow 0.45s, border-color 0.45s ease-in-out; }
-  input[type='text']:focus, input[type='password']:focus {
+  input[type='text']:focus, input[type='password']:focus, textarea:focus {
     box-shadow: 0 0 5px #999999;
     border-color: #999999; }
-  input[type='text']:focus, input[type='password']:focus {
+  input[type='text']:focus, input[type='password']:focus, textarea:focus {
     background: #fafafa;
     border-color: #999999;
     outline: none; }
-  input[type='text']:disabled, input[type='password']:disabled {
+  input[type='text']:disabled, input[type='password']:disabled, textarea:disabled {
     background-color: #DDDDDD;
     cursor: default; }
-  input[type='text'][disabled], input[type='text'][readonly], fieldset[disabled] input[type='text'], input[type='password'][disabled], input[type='password'][readonly], fieldset[disabled] input[type='password'] {
+  input[type='text'][disabled], input[type='text'][readonly], fieldset[disabled] input[type='text'], input[type='password'][disabled], input[type='password'][readonly], fieldset[disabled] input[type='password'], textarea[disabled], textarea[readonly], fieldset[disabled] textarea {
     background-color: #DDDDDD;
     cursor: default; }
-  input[type='text'].radius, input[type='password'].radius {
+  input[type='text'].radius, input[type='password'].radius, textarea.radius {
     border-radius: 3px; }
 
 form .row .prefix-radius.row.collapse input,

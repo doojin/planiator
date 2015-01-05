@@ -21,4 +21,7 @@
         </div>
         <a class="close-reveal-modal">&#215;</a>
     </div>
+
+    {{template "taskPopup" .}}
+
 {{end}}

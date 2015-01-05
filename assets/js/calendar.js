@@ -6,6 +6,7 @@ var TASK_CHECKBOX       = '.task input[type=checkbox]';
 var DAY_POPUP           = '#day-popup';
 var ADD_NEW_POPUP       = '#add-new-popup';
 var HOVER_CLASS         = '.hover';
+var SAVE_TASK_BUTTON    = '#save-new-task-button';
 
 $(document).ready(function() {
 
@@ -21,6 +22,7 @@ $(document).ready(function() {
 
     $(DAY_LI).on('click', showDayPopup);
     $(NEW_RECORD_BUTTON).on('click', showAddNewPopup);
+    $(SAVE_TASK_BUTTON).on('click', saveTask);
 
     // Timepicker widget
     var tpSettings = {
@@ -38,8 +40,10 @@ $(document).ready(function() {
 
 // Shows popup with information about daily tasks
 function showDayPopup() {
-    if ($(this).data('id')) {
+    var dayId = $(this).data('id');
+    if (dayId) {
         $(DAY_POPUP).foundation('reveal', 'open');
+        $('#new-task-day-id').val(dayId);
     }
 }
 
@@ -84,4 +88,43 @@ function hideOverlay(element) {
     if (isOverlayDisplayed(element)) {
         $(element).children(HOVER_CLASS).remove();
     }
+}
+
+// Saves task to database
+function saveTask() {
+    $.post('/save-task', getTaskData(), function(data) {
+        var response = JSON.parse(data);
+        if (response.success) {
+            appendTask();
+        } else {
+            displayNewTaskErrors(respose);
+        }
+    });
+}
+
+// Creates object with task data
+function getTaskData() {
+    return {
+        title: $('#task-title').val(),
+        from: $('#from').val(),
+        to: $('#to').val(),
+        calendarId: $('#task-calendar').val(),
+        dayId: $('#new-task-day-id').val(),
+        desc: $('#task-description').val()
+    };
+}
+
+// Creates new task in task list
+function appendTask() {
+
+}
+
+// Adds errors to the task form
+function displayNewTaskErrors(response) {
+
+}
+
+// Hides all errors from task form
+function hideNewTaskErrors() {
+
 }
